@@ -561,6 +561,17 @@ footer {
   }
 }
 
+/* =========================
+   FIX ABOUT IMAGE HIDING
+========================= */
+@media (max-width: 1024px) {
+  .about-signature {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+}
+
 
 
 
