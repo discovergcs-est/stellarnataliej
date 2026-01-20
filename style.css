@@ -215,6 +215,8 @@ body {
 .contact-email {
   font-weight: 600;
   margin-top: 15px;
+  text-decoration-line: none;
+  font-color: black;
 }
 
 .socials i {
@@ -379,3 +381,4 @@ footer {
     margin: 0 auto 26px;
   }
 }
+
