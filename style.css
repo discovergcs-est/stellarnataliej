@@ -68,11 +68,18 @@ body {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 28px;
-  background: var(--burnt-orange);
-  color: white;
+  background: linear-gradient(135deg, #c65a1e, #8b3f16);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);  color: white;
   text-decoration: none;
   border-radius: 30px;
 }
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+
 
 /* ===== SECTIONS ===== */
 .section {
@@ -144,8 +151,8 @@ body {
 /* ===== BUTTONS ===== */
 .btn-dark {
   padding: 14px 30px;
-  background: black;
-  color: white;
+  background: linear-gradient(135deg, #6f6f6f, #8b3f16);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);  color: white;
   text-decoration: none;
   border-radius: 30px;
   display: inline-block;
@@ -213,14 +220,18 @@ body {
    WHATSAPP CONTACT
 ========================= */
 
+/* =========================
+   WHATSAPP CONTACT
+========================= */
+
 .whatsapp-contact {
-  padding: 14px 30px;
-  background: #c65a1e;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  display: inline-block;
-  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 25px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #c65a1e, #8b3f16);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
@@ -570,6 +581,7 @@ footer {
   }
 
 }
+
 
 
 
