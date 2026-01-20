@@ -208,13 +208,13 @@ body {
 ========================= */
 
 .whatsapp-contact {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
+  padding: 14px 30px;
+  background: #c65a1e;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
   margin-top: 25px;
-  padding: 14px 22px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
@@ -541,6 +541,7 @@ footer {
     font-size: 13px;
   }
 }
+
 
 
 
