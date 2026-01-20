@@ -46,6 +46,7 @@ body {
 .logo {
   font-weight: 700;
   letter-spacing: 2px;
+  font-color: #c65a1e;
 }
 
 /* ===== HERO ===== */
@@ -571,6 +572,7 @@ footer {
     overflow: visible;
   }
 }
+
 
 
 
