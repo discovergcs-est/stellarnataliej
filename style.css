@@ -1,0 +1,381 @@
+:root {
+  --burnt-orange: #c65a1e;
+  --soft-cream: #f6f1eb;
+  --dark: #1e1e1e;
+  --gray: #6f6f6f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+}
+
+/* ===== NAV ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--soft-cream);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  z-index: 1000;
+}
+
+.navbar a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: var(--burnt-orange);
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  background-color: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero span {
+  color: var(--burnt-orange);
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: var(--burnt-orange);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 100px 40px;
+}
+
+.light {
+  background: var(--soft-cream);
+}
+
+.dark {
+  background: #111;
+  color: white;
+}
+
+.accent {
+  background: var(--burnt-orange);
+  color: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card li {
+  margin: 12px 0;
+}
+
+/* ===== GALLERY ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  background: #333;
+  height: 220px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+}
+
+/* ===== BUTTONS ===== */
+.btn-dark {
+  padding: 14px 30px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+/* ================= PROMOTIONAL VIDEOS ================= */
+.video-section {
+  background: var(--cream-dark);
+  position: relative;
+}
+
+/* subtle grain to match hero */
+.video-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--gray);
+  margin-bottom: 50px;
+}
+
+/* grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* video card */
+.video-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+}
+
+.video-card video {
+  width: 100%;
+  display: block;
+}
+
+.video-card p {
+  padding: 16px;
+  font-weight: 500;
+}
+
+
+
+/* ===== CONTACT ===== */
+.contact-email {
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.socials i {
+  margin: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 20px;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .signature-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .signature-text p {
+    margin: 0 auto;
+  }
+
+  .signature-line {
+    margin: 0 auto 24px;
+  }
+}
+
+/* ================= ABOUT + SIGNATURE ================= */
+.about-signature {
+  position: relative;   
+   height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #fdf8f3 0%,
+    #f3e8dd 100%
+  );
+  overflow: hidden;
+}
+
+
+/* Layout */
+.about-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Image */
+.about-image {
+  position: relative;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 32px;
+  object-fit: cover;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+
+/* Text */
+.about-content {
+  animation: fadeUp 1s ease forwards;
+}
+
+.about-label {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about-content h2 {
+  font-size: 2.7rem;
+  margin: 14px 0 12px;
+}
+
+/* Accent line */
+.about-line {
+  width: 65px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--accent),
+    transparent
+  );
+  margin-bottom: 26px;
+}
+
+/* Paragraphs */
+.about-intro {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--gray);
+  max-width: 460px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-content p {
+    margin: 0 auto;
+  }
+
+  .about-line {
+    margin: 0 auto 26px;
+  }
+}
