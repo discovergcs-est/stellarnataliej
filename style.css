@@ -382,3 +382,157 @@ footer {
   }
 }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* ---------- Large Tablets / Small Laptops ---------- */
+@media (max-width: 1024px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .about-image img {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------- Tablets ---------- */
+@media (max-width: 768px) {
+
+  /* NAV */
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 120px 20px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content span {
+    display: block;
+  }
+
+  /* ABOUT */
+  .about-content {
+    text-align: center;
+  }
+
+  .about-line {
+    margin: 20px auto;
+  }
+
+  /* VIDEOS */
+  .video-card video {
+    border-radius: 14px;
+  }
+
+  /* GALLERY */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ---------- Phones ---------- */
+@media (max-width: 480px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  /* NAV */
+  .logo {
+    font-size: 22px;
+  }
+
+  .navbar nav a {
+    font-size: 14px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 100px 18px;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  /* ABOUT */
+  .about-image img {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+  }
+
+  /* VIDEOS */
+  .video-card p {
+    font-size: 14px;
+  }
+
+  /* GALLERY */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CONTACT */
+  .contact-email {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}
+
+
+
