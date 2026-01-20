@@ -529,6 +529,12 @@ footer {
     font-size: 13px;
   }
 }
+@media (max-width: 480px) {
+  section {
+    scroll-margin-top: 140px;
+  }
+}
+
 
 
 
