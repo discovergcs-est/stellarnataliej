@@ -212,7 +212,7 @@ body {
 
 
 /* ===== CONTACT ===== */
-.contact-email {
+.contact-phone {
   font-weight: 600;
   margin-top: 15px;
   text-decoration-line: none;
@@ -382,10 +382,6 @@ footer {
   }
 }
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-
 /* ---------- Large Tablets / Small Laptops ---------- */
 @media (max-width: 1024px) {
 
@@ -533,6 +529,7 @@ footer {
     font-size: 13px;
   }
 }
+
 
 
 
