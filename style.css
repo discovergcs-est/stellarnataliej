@@ -151,7 +151,7 @@ body {
 /* ===== BUTTONS ===== */
 .btn-dark {
   padding: 14px 30px;
-  background: linear-gradient(135deg, #6f6f6f, #8b3f16);
+  background: linear-gradient(135deg, #0b0b0b, #c65a1e);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);  color: white;
   text-decoration: none;
   border-radius: 30px;
@@ -242,7 +242,6 @@ body {
 
 .whatsapp-contact a {
   color: white;
-  font-weight: 600;
   text-decoration: none;
   font-size: 15px;
 }
@@ -286,21 +285,7 @@ footer {
   }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .signature-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 
-  .signature-text p {
-    margin: 0 auto;
-  }
-
-  .signature-line {
-    margin: 0 auto 24px;
-  }
-}
 
 /* ================= ABOUT + SIGNATURE ================= */
 .about-signature {
@@ -395,21 +380,10 @@ footer {
   }
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 
-  .about-content p {
-    margin: 0 auto;
-  }
-
-  .about-line {
-    margin: 0 auto 26px;
-  }
-}
+/* =========================
+   RESPONSIVE DESIGN — CLEAN
+========================= */
 
 /* ---------- Large Tablets / Small Laptops ---------- */
 @media (max-width: 1024px) {
@@ -417,11 +391,16 @@ footer {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 50px;
+    text-align: center;
   }
 
   .about-image img {
     max-width: 500px;
     margin: 0 auto;
+  }
+
+  .about-line {
+    margin: 0 auto 26px;
   }
 
   .hero-content h1 {
@@ -436,7 +415,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-
 
 /* ---------- Tablets ---------- */
 @media (max-width: 768px) {
@@ -457,7 +435,7 @@ footer {
 
   /* HERO */
   .hero {
-    padding: 120px 20px;
+    padding: 120px 24px;
     text-align: center;
   }
 
@@ -469,18 +447,26 @@ footer {
     display: block;
   }
 
-  /* ABOUT */
+  /* ABOUT / SIGNATURE */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .about-content {
+    order: 1;
     text-align: center;
+    margin-bottom: 40px;
   }
 
-  .about-line {
-    margin: 20px auto;
+  .about-image {
+    order: 2;
+    width: 100%;
   }
 
-  /* VIDEOS */
-  .video-card video {
-    border-radius: 14px;
+  .about-content p {
+    margin: 0 auto;
   }
 
   /* GALLERY */
@@ -488,7 +474,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 /* ---------- Phones ---------- */
 @media (max-width: 480px) {
@@ -506,6 +491,12 @@ footer {
     font-size: 14px;
   }
 
+  /* FIX NAV OVERLAP */
+  #home {
+    padding-top: 180px;
+    padding-bottom: 80px;
+  }
+
   /* HERO */
   .hero {
     padding: 100px 18px;
@@ -513,11 +504,11 @@ footer {
 
   .hero-content h1 {
     font-size: 30px;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   .hero-content p {
-    font-size: 14px;
+    font-size: 14.5px;
   }
 
   .btn-primary {
@@ -525,18 +516,29 @@ footer {
     font-size: 14px;
   }
 
-  /* ABOUT */
-  .about-image img {
-    width: 100%;
-    border-radius: 16px;
+  /* ABOUT / SIGNATURE */
+  .about-content {
+    padding: 0 12px;
   }
 
   .about-content h2 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .about-content p {
-    font-size: 14px;
+    font-size: 14.5px;
+  }
+
+  .about-image {
+    margin-top: 40px;
+  }
+
+  .about-image img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    border-radius: 16px;
   }
 
   /* VIDEOS */
@@ -558,33 +560,6 @@ footer {
     font-size: 13px;
   }
 }
-
-
-@media (max-width: 480px) {
-
-  /* Push the HOME section down */
-  #home {
-    padding-top: 180px; =
-  }
-
-  /* Add breathing room above the image */
-  .about-image {
-    margin-top: 40px;
-  }
-
-  /* Ensure image is visible and centered */
-  .about-image img {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-}
-
-
-
-
 
 
 
