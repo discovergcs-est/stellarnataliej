@@ -543,6 +543,27 @@ footer {
 }
 
 
+@media (max-width: 480px) {
+
+  /* Push the HOME section down */
+  #home {
+    padding-top: 180px; =
+  }
+
+  /* Add breathing room above the image */
+  .about-image {
+    margin-top: 40px;
+  }
+
+  /* Ensure image is visible and centered */
+  .about-image img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+}
 
 
 
