@@ -47,6 +47,7 @@ body {
   font-weight: 700;
   letter-spacing: 2px;
   color: #c65a1e;
+  text-decoration: none;
 }
 
 /* ===== HERO ===== */
@@ -671,6 +672,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
