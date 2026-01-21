@@ -1,4 +1,4 @@
-// ===== NAV SHADOW ON SCROLL =====
+// NAV SHADOW ON SCROLL 
 const nav = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -9,7 +9,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== VIDEO FUNCTIONALITY =====
+// VIDEO FUNCTIONALITY 
 const videoCards = document.querySelectorAll('.video-card');
 
   videoCards.forEach(card => {
@@ -32,28 +32,26 @@ const videoCards = document.querySelectorAll('.video-card');
     });
   });
 
-const tabButtons = document.querySelectorAll('.tab-button');
-const videoContents = document.querySelectorAll('.video-content');
+ // Scroll to Top Button
+    const upBtn = document.querySelector('.up');
 
-tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const target = button.dataset.video;
-
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    videoContents.forEach(section => {
-      const video = section.querySelector('video');
-
-      if (section.id === target) {
-        section.classList.add('active');
+    function toggleUpBtn() {
+      if (window.scrollY > 200) {
+        upBtn.classList.add('show-up-btn');
       } else {
-        section.classList.remove('active');
-        if (video) {
-          video.pause();
-          video.currentTime = 0;
-        }
+        upBtn.classList.remove('show-up-btn');
       }
-    });
-  });
-});
+    }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    window.addEventListener('scroll', toggleUpBtn);
+    upBtn.addEventListener('click', scrollToTop);
+
+
+
