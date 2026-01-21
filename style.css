@@ -400,7 +400,7 @@ footer {
   padding: 24px 40px;
   background: linear-gradient(135deg, #c65a1e, #8b3f16);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15)  
-  color: #111;
+  color: #000;
   font-weight: 600;
   text-decoration: none;
   border-radius: 40px;
@@ -672,6 +672,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
