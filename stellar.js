@@ -11,48 +11,53 @@ window.addEventListener('scroll', () => {
 
 // ===== VIDEO FUNCTIONALITY =====
 // Select all video cards
+const videos = document.querySelectorAll('.video-card video');
 const videoCards = document.querySelectorAll('.video-card');
 const mainVideo = document.getElementById('mainVideo');
 const mainVideoTitle = document.getElementById('mainVideoTitle');
 
+// Hover preview (muted)
 videoCards.forEach(card => {
-  const videoEl = card.querySelector('video');
+  const previewVideo = card.querySelector('video');
   const src = card.dataset.src;
+  const poster = card.dataset.poster;
 
-  // Set the actual video source
-  videoEl.src = src;
-  videoEl.loop = true;      // loop for hover preview
-  videoEl.muted = true;     // mute preview
-  videoEl.controls = false; // hide controls on preview
-  videoEl.preload = "metadata";
+  previewVideo.src = src; // Ensure preview video has src
+  previewVideo.poster = poster;
 
-  // Hover: play preview silently
+  // Hover: play muted preview
   card.addEventListener('mouseenter', () => {
-    videoEl.play();
+    previewVideo.muted = true;
+    previewVideo.play();
   });
 
   card.addEventListener('mouseleave', () => {
-    videoEl.pause();
-    videoEl.currentTime = 0;
+    previewVideo.pause();
+    previewVideo.currentTime = 0;
   });
 
   // Click: play full video with sound
   card.addEventListener('click', () => {
-    // Pause other videos
-    document.querySelectorAll('video').forEach(v => v.pause());
-
-    // Update main video
     mainVideo.src = src;
-    mainVideo.poster = videoEl.getAttribute('poster');
+    mainVideo.poster = poster;
     mainVideo.muted = false;
-    mainVideo.controls = true;
     mainVideo.play();
-
-    // Update title
     mainVideoTitle.textContent = card.dataset.title;
-
-    // Scroll main video into view
     mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Pause all preview videos
+    videos.forEach(v => {
+      v.pause();
+      v.currentTime = 0;
+    });
   });
 });
+
+// Optional: Pause main video if another card is clicked
+mainVideo.addEventListener('play', () => {
+  videos.forEach(v => {
+    v.pause();
+  });
+});
+
 
