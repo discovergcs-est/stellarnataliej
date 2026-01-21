@@ -395,6 +395,30 @@ footer {
   }
 }
 
+/* ===== STELLAR REGISTER BUTTON ===== */
+.btn-dark {
+  display: inline-block;
+  padding: 14px 34px;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 40px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn-dark:hover {
+  background: #222;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.btn-dark {
+  background: linear-gradient(135deg, #caa14d, #f2d184);
+  color: #111;
+}
 
 /* =========================
    RESPONSIVE DESIGN — CLEAN
@@ -586,6 +610,7 @@ footer {
     overflow: visible;
   }
 }
+
 
 
 
