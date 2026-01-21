@@ -69,7 +69,7 @@ body {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #caa14d, #f2d184);
+  background: linear-gradient(135deg, #c65a1e, #8b3f16); 
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   color: white;
   text-decoration: none;
@@ -78,8 +78,9 @@ body {
 
 
 .btn-dark:hover {
-  background: #333; 
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #c65a1e, #8b3f16); 
+  color: white; /* white text */
+
 }
 
 /* ===== SECTIONS ===== */
@@ -672,6 +673,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
