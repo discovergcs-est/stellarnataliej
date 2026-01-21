@@ -410,9 +410,45 @@ footer {
   margin-top: 50px; 
 }
 
-/* =========================
+    /* ===
+       Scroll to Top Button
+   === */
+
+    .up {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #c65a1e;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .up.show-up-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .up:hover {
+      transform: translateY(-10%);
+      transition: 0.2s;
+    }
+
+
+
+/* ====
    RESPONSIVE DESIGN 
-========================= */
+==== */
 
 /* ---------- Large Tablets / Small Laptops ---------- */
 @media (max-width: 1024px) {
@@ -673,6 +709,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
