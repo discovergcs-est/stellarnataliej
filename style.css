@@ -614,20 +614,26 @@ footer {
   }
 }
 
-/* Make gallery images taller on tablets and phones */
+/* ===== MAKE GALLERY IMAGES TALLER ON MOBILE/TABLET ===== */
+@media (max-width: 1024px) {
+  .gallery-item {
+    height: 350px; /* taller for tablets */
+  }
+}
+
 @media (max-width: 768px) {
   .gallery-item {
-    height: 400px; /* taller for tablets */
+    height: 400px; /* even taller for small tablets */
   }
 }
 
 @media (max-width: 480px) {
   .gallery-item {
-    height: 500px; /* even taller for phones */
+    height: 450px; /* tallest for phones */
   }
 }
 
-/* Tablets */
+/* ===== MOVE SIGNATURE IMAGE TO FRONT ON MOBILE/TABLETS ===== */
 @media (max-width: 1024px) {
   .about-grid {
     display: flex;
@@ -635,25 +641,10 @@ footer {
     align-items: center;
   }
 
-  /* Make signature image appear first */
-  .about-image {
-    order: -1;
-    width: 100%;
-    margin-bottom: 30px; /* optional spacing */
-  }
-
-  .about-content {
-    order: 1;
-    text-align: center;
-  }
-}
-
-/* Phones */
-@media (max-width: 480px) {
   .about-image {
     order: -1; /* signature first */
+    width: 100%;
     margin-bottom: 30px;
-    max-width: 320px;
   }
 
   .about-content {
@@ -662,7 +653,17 @@ footer {
   }
 }
 
+@media (max-width: 480px) {
+  .about-image {
+    order: -1;
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
 
-
+  .about-content {
+    order: 1;
+    text-align: center;
+  }
+}
 
 
