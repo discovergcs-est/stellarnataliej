@@ -103,22 +103,27 @@ Every detail reflects our commitment to You. Delivering authentically, adding va
       A glimpse into the energy, atmosphere, and connection.
     </p>
 
-<div class="video-card">
-  <video controls preload="metadata" poster="externals/video-poster1.jpg">
-    <source src="Stellar Launch.mp4" type="video/mp4">
-  </video>
-  <p>Stellar Launch</p>
-</div>
+    <!-- Video Grid -->
+    <div class="video-grid">
+      <div class="video-card" data-title="Stellar Launch" data-src="Stellar Launch.mp4">
+        <video muted preload="metadata" poster="externals/video-poster1.jpg" loop></video>
+        <p>Stellar Launch</p>
+      </div>
 
-<div class="video-card">
-  <video controls preload="metadata" poster="externals/video-poster2.jpg">
-    <source src="Stellar Weekend Rendezvous.mp4" type="video/mp4">
-  </video>
-  <p>Weekend Rendezvous</p>
-</div>
+      <div class="video-card" data-title="Weekend Rendezvous" data-src="Stellar Weekend Rendezvous.mp4">
+        <video muted preload="metadata" poster="externals/video-poster2.jpg" loop></video>
+        <p>Weekend Rendezvous</p>
+      </div>
+    </div>
 
+    <!-- Full Video Player -->
+    <div class="video-full-display">
+      <video controls id="mainVideo" poster="externals/video-poster1.jpg"></video>
+      <p id="mainVideoTitle"></p>
+    </div>
   </div>
 </section>
+
 
 
 <!-- ================= GALLERY ================= -->
@@ -222,6 +227,7 @@ Every detail reflects our commitment to You. Delivering authentically, adding va
 <script src="stellar.js"></script>
 </body>
 </html>
+
 
 
 
