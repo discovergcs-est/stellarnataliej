@@ -710,6 +710,131 @@ footer {
 }
 
 
+/* ===== MEDIA QUERIES SPECIFICALLY FOR IPHONES ===== */
+/* ================================
+   📱 STELLAR – IPHONE ONLY FIX
+   (iOS Safari)
+================================ */
+
+@supports (-webkit-touch-callout: none) {
+
+  /* ---------- GLOBAL SCALE DOWN ---------- */
+  body {
+    font-size: 14.5px;
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14.5px;
+  }
+
+  /* ---------- HERO FIX ---------- */
+  .hero {
+    min-height: 100svh;
+    height: auto;
+    padding: 140px 20px 120px; /* top & bottom space */
+  }
+
+  .btn-primary {
+    padding: 11px 22px;
+    font-size: 14px;
+  }
+
+  /* ---------- NAV ---------- */
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .gallery-item {
+    height: 260px;
+    border-radius: 14px;
+  }
+
+  /* ---------- VIDEO PREVIEWS ---------- */
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .video-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: black;
+  }
+
+  .video-card p {
+    font-size: 14px;
+  }
+
+  /* ---------- ABOUT / SIGNATURE ---------- */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image {
+    order: -1;
+    max-width: 300px;
+    margin-bottom: 26px;
+  }
+
+  .about-image img {
+    border-radius: 18px;
+  }
+
+  .about-content h2 {
+    font-size: 24px;
+  }
+
+  .about-content p {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn-dark {
+    padding: 18px 30px;
+    font-size: 14px;
+    margin-top: 40px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    font-size: 13px;
+  }
+}
+
+
+
+
 
 
 
