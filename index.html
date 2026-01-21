@@ -96,7 +96,6 @@
 </section>
 
 
-
 <!-- ================= PROMOTIONAL VIDEOS ================= -->
 <section id="videos" class="section video-section">
   <div class="container">
@@ -107,27 +106,27 @@
 
     <!-- Video Grid -->
     <div class="video-grid">
-      <div class="video-card" data-title="Stellar Launch" data-src="Stellar Launch.mp4">
-        <video muted preload="metadata" poster="externals/video-poster1.jpg" loop>
+      <div class="video-card" data-title="Stellar Launch" data-src="Stellar Launch.mp4" data-poster="externals/video-poster1.jpg">
+        <video muted preload="metadata" loop poster="externals/video-poster1.jpg">
           <source src="Stellar Launch.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
         <p>Stellar Launch</p>
       </div>
 
-      <div class="video-card" data-title="Weekend Rendezvous" data-src="Stellar Weekend Rendezvous.mp4">
-        <video muted preload="metadata" poster="externals/video-poster2.jpg" loop>
+      <div class="video-card" data-title="Weekend Rendezvous" data-src="Stellar Weekend Rendezvous.mp4" data-poster="externals/video-poster2.jpg">
+        <video muted preload="metadata" loop poster="externals/video-poster2.jpg">
           <source src="Stellar Weekend Rendezvous.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
         <p>Weekend Rendezvous</p>
       </div>
+    </div>
 
-          <div class="video-full-display">
-  <video id="mainVideo" poster="externals/video-poster1.jpg"></video>
-  <p id="mainVideoTitle">Select a video to play</p>
-</div>
-      
+    <!-- Full Video Player -->
+    <div class="video-full-display">
+      <video id="mainVideo" controls poster="externals/video-poster1.jpg"></video>
+      <p id="mainVideoTitle">Select a video to play</p>
     </div>
   </div>
 </section>
@@ -237,6 +236,7 @@
 <script src="stellar.js"></script>
 </body>
 </html>
+
 
 
 
