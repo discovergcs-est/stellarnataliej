@@ -614,4 +614,18 @@ footer {
   }
 }
 
+/* Make gallery images taller on tablets and phones */
+@media (max-width: 768px) {
+  .gallery-item {
+    height: 400px; /* taller for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-item {
+    height: 500px; /* even taller for phones */
+  }
+}
+
+
 
