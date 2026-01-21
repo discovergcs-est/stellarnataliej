@@ -39,7 +39,7 @@ body {
   font-weight: 500;
 }
 
-.navbar a:hover {
+.navbar a: {
   color: var(--burnt-orange);
 }
 
@@ -71,7 +71,7 @@ body {
   padding: 12px 28px;
   background: linear-gradient(135deg, #c65a1e, #8b3f16); 
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  color: white;
+  color: white; 
   text-decoration: none;
   border-radius: 30px;
 }
@@ -79,8 +79,6 @@ body {
 
 .btn-dark:hover {
   background: linear-gradient(135deg, #c65a1e, #8b3f16); 
-  color: white; /* white text */
-
 }
 
 /* ===== SECTIONS ===== */
@@ -673,6 +671,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
