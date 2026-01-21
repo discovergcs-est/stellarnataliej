@@ -10,53 +10,49 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== VIDEO FUNCTIONALITY =====
+// Select all video cards
 const videoCards = document.querySelectorAll('.video-card');
 const mainVideo = document.getElementById('mainVideo');
 const mainVideoTitle = document.getElementById('mainVideoTitle');
 
-// Function to pause all videos except the one playing
-function pauseOtherVideos(current) {
-  const allVideos = document.querySelectorAll('video');
-  allVideos.forEach(v => {
-    if (v !== current) {
-      v.pause();
-    }
-  });
-}
-
-// Initialize video cards
 videoCards.forEach(card => {
   const videoEl = card.querySelector('video');
   const src = card.dataset.src;
 
-  // Set video source
+  // Set the actual video source
   videoEl.src = src;
+  videoEl.loop = true;      // loop for hover preview
+  videoEl.muted = true;     // mute preview
+  videoEl.controls = false; // hide controls on preview
+  videoEl.preload = "metadata";
 
-  // Hover preview
+  // Hover: play preview silently
   card.addEventListener('mouseenter', () => {
-    pauseOtherVideos(videoEl); // Stop other previews
     videoEl.play();
   });
 
   card.addEventListener('mouseleave', () => {
     videoEl.pause();
-    videoEl.currentTime = 0; // Reset preview
+    videoEl.currentTime = 0;
   });
 
-  // Click to play in main player
+  // Click: play full video with sound
   card.addEventListener('click', () => {
+    // Pause other videos
+    document.querySelectorAll('video').forEach(v => v.pause());
+
+    // Update main video
     mainVideo.src = src;
     mainVideo.poster = videoEl.getAttribute('poster');
-    mainVideoTitle.textContent = card.dataset.title;
+    mainVideo.muted = false;
+    mainVideo.controls = true;
     mainVideo.play();
-    pauseOtherVideos(mainVideo); // Stop all other videos
+
+    // Update title
+    mainVideoTitle.textContent = card.dataset.title;
+
+    // Scroll main video into view
     mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 });
 
-// Ensure only one video plays at a time globally
-document.querySelectorAll('video').forEach(video => {
-  video.addEventListener('play', () => {
-    pauseOtherVideos(video);
-  });
-});
