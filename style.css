@@ -69,17 +69,11 @@ body {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
+  background: linear-gradient(135deg, #000, #8b3f16);
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   color: white;
   text-decoration: none;
   border-radius: 30px;
-}
-
-.btn.primary:hover {
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
 }
 
 /* ===== SECTIONS ===== */
@@ -619,4 +613,5 @@ footer {
     transform: translateY(0);
   }
 }
+
 
