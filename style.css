@@ -174,7 +174,6 @@ body {
 }
 
 
-/* ================= PROMOTIONAL VIDEOS ================= */
 /* ===== STELLAR MOMENTS VIDEOS ===== */
 .video-section {
   padding: 80px 0;
@@ -201,17 +200,23 @@ body {
 
 /* VIDEO CARD */
 .video-card {
-  background: #000;
+  background: #111;
   border-radius: 16px;
   overflow: hidden;
-  text-align: center;
 }
 
-/* VIDEO */
 .video-card video {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Optional: subtle hover */
+.video-card:hover {
+  transform: translateY(-4px);
+  transition: 0.3s ease;
 }
 
 /* TITLE */
@@ -581,6 +586,7 @@ footer {
     overflow: visible;
   }
 }
+
 
 
 
