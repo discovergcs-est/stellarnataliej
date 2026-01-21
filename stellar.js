@@ -14,18 +14,22 @@ const videoCards = document.querySelectorAll('.video-card');
 
 videoCards.forEach(card => {
   const video = card.querySelector('video');
-  video.muted = false;
+
+  // Ensure video shows first frame and is controllable
   video.controls = true;
+  video.muted = false;
   video.loop = false;
   video.currentTime = 0;
-  video.pause();
 
+  // Click card to play/pause
   card.addEventListener('click', () => {
+    // Pause all other videos
     videoCards.forEach(c => {
       const v = c.querySelector('video');
       if (v !== video) v.pause();
     });
 
+    // Toggle play/pause for clicked video
     if (video.paused) video.play();
     else video.pause();
   });
