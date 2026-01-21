@@ -31,3 +31,29 @@ const videoCards = document.querySelectorAll('.video-card');
       else video.pause();
     });
   });
+
+const tabButtons = document.querySelectorAll('.tab-button');
+const videoContents = document.querySelectorAll('.video-content');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const target = button.dataset.video;
+
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    videoContents.forEach(section => {
+      const video = section.querySelector('video');
+
+      if (section.id === target) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  });
+});
