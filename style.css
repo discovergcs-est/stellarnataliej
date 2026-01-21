@@ -627,5 +627,42 @@ footer {
   }
 }
 
+/* Tablets */
+@media (max-width: 1024px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Make signature image appear first */
+  .about-image {
+    order: -1;
+    width: 100%;
+    margin-bottom: 30px; /* optional spacing */
+  }
+
+  .about-content {
+    order: 1;
+    text-align: center;
+  }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .about-image {
+    order: -1; /* signature first */
+    margin-bottom: 30px;
+    max-width: 320px;
+  }
+
+  .about-content {
+    order: 1;
+    text-align: center;
+  }
+}
+
+
+
 
 
