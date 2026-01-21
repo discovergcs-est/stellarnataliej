@@ -1,3 +1,4 @@
+// ===== NAV SHADOW ON SCROLL =====
 const nav = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -8,45 +9,54 @@ window.addEventListener('scroll', () => {
   }
 });
 
-const videos = document.querySelectorAll('video');
-
-videos.forEach(video => {
-  video.addEventListener('play', () => {
-    videos.forEach(v => {
-      if (v !== video) {
-        v.pause();
-      }
-    });
-  });
-});
-
-// Select all video cards
+// ===== VIDEO FUNCTIONALITY =====
 const videoCards = document.querySelectorAll('.video-card');
 const mainVideo = document.getElementById('mainVideo');
 const mainVideoTitle = document.getElementById('mainVideoTitle');
 
-// Load preview videos
+// Function to pause all videos except the one playing
+function pauseOtherVideos(current) {
+  const allVideos = document.querySelectorAll('video');
+  allVideos.forEach(v => {
+    if (v !== current) {
+      v.pause();
+    }
+  });
+}
+
+// Initialize video cards
 videoCards.forEach(card => {
   const videoEl = card.querySelector('video');
   const src = card.dataset.src;
+
+  // Set video source
   videoEl.src = src;
 
-  // Play preview on hover
+  // Hover preview
   card.addEventListener('mouseenter', () => {
+    pauseOtherVideos(videoEl); // Stop other previews
     videoEl.play();
   });
 
   card.addEventListener('mouseleave', () => {
     videoEl.pause();
-    videoEl.currentTime = 0;
+    videoEl.currentTime = 0; // Reset preview
   });
 
   // Click to play in main player
   card.addEventListener('click', () => {
     mainVideo.src = src;
-    mainVideoTitle.textContent = card.dataset.title;
     mainVideo.poster = videoEl.getAttribute('poster');
+    mainVideoTitle.textContent = card.dataset.title;
     mainVideo.play();
+    pauseOtherVideos(mainVideo); // Stop all other videos
     mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+
+// Ensure only one video plays at a time globally
+document.querySelectorAll('video').forEach(video => {
+  video.addEventListener('play', () => {
+    pauseOtherVideos(video);
   });
 });
