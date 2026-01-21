@@ -198,32 +198,62 @@ body {
 }
 
 /* VIDEO CARD */
+/* VIDEO GRID */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* side-by-side */
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* VIDEO CARD */
 .video-card {
   background: #111;
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 16/9; /* optional, keeps videos consistent */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 16/9; /* consistent video height */
 }
 
+.video-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* Video inside card (preview) */
 .video-card video {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
-  cursor: pointer;
+  display: block;
 }
 
-/* Optional: subtle hover */
-.video-card:hover {
-  transform: translateY(-4px);
-  transition: 0.3s ease;
-}
-
-/* TITLE */
 .video-card p {
   color: #fff;
-  padding: 15px;
   font-weight: 600;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Full Video Player */
+.video-full-display {
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  text-align: center;
+}
+
+.video-full-display video {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+
+.video-full-display p {
+  font-size: 18px;
+  color: #c65a1e; /* Stellar accent */
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 /* MOBILE STACK */
@@ -589,3 +619,4 @@ footer {
     transform: translateY(0);
   }
 }
+
