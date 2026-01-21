@@ -10,54 +10,31 @@ window.addEventListener('scroll', () => {
 });
 
 // ===== VIDEO FUNCTIONALITY =====
-// Select all video cards
-const videos = document.querySelectorAll('.video-card video');
 const videoCards = document.querySelectorAll('.video-card');
-const mainVideo = document.getElementById('mainVideo');
-const mainVideoTitle = document.getElementById('mainVideoTitle');
 
-// Hover preview (muted)
 videoCards.forEach(card => {
-  const previewVideo = card.querySelector('video');
-  const src = card.dataset.src;
-  const poster = card.dataset.poster;
+  const video = card.querySelector('video');
+  
+  // Play muted preview on load (optional)
+  video.muted = true;
+  video.loop = true;
+  video.play().catch(() => {}); // autoplay may be blocked on mobile
 
-  previewVideo.src = src; // Ensure preview video has src
-  previewVideo.poster = poster;
-
-  // Hover: play muted preview
-  card.addEventListener('mouseenter', () => {
-    previewVideo.muted = true;
-    previewVideo.play();
-  });
-
-  card.addEventListener('mouseleave', () => {
-    previewVideo.pause();
-    previewVideo.currentTime = 0;
-  });
-
-  // Click: play full video with sound
+  // Click to play with sound
   card.addEventListener('click', () => {
-    mainVideo.src = src;
-    mainVideo.poster = poster;
-    mainVideo.muted = false;
-    mainVideo.play();
-    mainVideoTitle.textContent = card.dataset.title;
-    mainVideo.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    // Pause all preview videos
-    videos.forEach(v => {
-      v.pause();
-      v.currentTime = 0;
+    // Pause all other videos
+    videoCards.forEach(c => {
+      const v = c.querySelector('video');
+      if (v !== video) {
+        v.pause();
+        v.currentTime = 0;
+        v.muted = true; // back to muted preview
+      }
     });
+
+    // Play this video with sound
+    video.muted = false;
+    video.play();
   });
 });
-
-// Optional: Pause main video if another card is clicked
-mainVideo.addEventListener('play', () => {
-  videos.forEach(v => {
-    v.pause();
-  });
-});
-
 
