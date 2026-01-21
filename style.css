@@ -35,16 +35,16 @@ body {
 .navbar a {
   margin-left: 25px;
   text-decoration: none;
-  color: var(--burnt-orange);
+  color: var(--black);
   font-weight: 500;
 }
 
 .navbar a:hover {
-  color: var(--black);
+  color: var(--burnt-orange);
 }
 
 .logo {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
   color: var(--burnt-orange);
   text-decoration: none;
@@ -709,6 +709,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
