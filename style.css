@@ -406,11 +406,11 @@ footer {
   border-radius: 40px;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
-  margin-top: 50px; /* increased spacing from content */
+  margin-top: 50px; 
 }
 
 /* =========================
-   RESPONSIVE DESIGN — CLEAN
+   RESPONSIVE DESIGN 
 ========================= */
 
 /* ---------- Large Tablets / Small Laptops ---------- */
@@ -672,6 +672,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
