@@ -373,7 +373,7 @@ footer {
 /* ===== STELLAR REGISTER BUTTON ===== */
 .btn-dark {
   display: inline-block;
-  padding: 14px 40px;
+  padding: 24px 40px;
   background: #000;
   color: #fff;
   font-weight: 600;
@@ -600,6 +600,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 
 
 
