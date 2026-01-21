@@ -35,18 +35,18 @@ body {
 .navbar a {
   margin-left: 25px;
   text-decoration: none;
-  color: var(--dark);
+  color: var(--burnt-orange);
   font-weight: 500;
 }
 
 .navbar a:hover {
-  color: var(--burnt-orange);
+  color: var(--black);
 }
 
 .logo {
   font-weight: 700;
   letter-spacing: 2px;
-  color: #c65a1e;
+  color: var(--burnt-orange);
   text-decoration: none;
 }
 
@@ -182,6 +182,7 @@ body {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: var(--burnt-orange);
 }
 
 .section-subtitle {
@@ -672,6 +673,7 @@ footer {
     text-align: center;
   }
 }
+
 
 
 
