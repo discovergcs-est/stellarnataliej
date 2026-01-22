@@ -51,7 +51,7 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  height: 200vh;
+  min-height: calc(100vh - 80px);
   background-color: #111;
   color: white;
   display: flex;
@@ -840,6 +840,7 @@ footer {
     font-size: 13px;
   }
 }
+
 
 
 
