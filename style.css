@@ -480,6 +480,14 @@ footer {
   }
 }
 
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 110vh;
+    padding-top: 140px;
+  }
+}
+
+
 /* ---------- Tablets ---------- */
 @media (max-width: 768px) {
 
@@ -831,6 +839,7 @@ footer {
     font-size: 13px;
   }
 }
+
 
 
 
