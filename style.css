@@ -84,7 +84,9 @@ body {
 
 /* ===== SECTIONS ===== */
 .section {
-  padding: 100px 40px;
+  padding: 80px 40px;
+  position: relative;
+  z-index: 2;
 }
 
 .light {
@@ -483,8 +485,10 @@ footer {
 
 @media (min-width: 1024px) {
   .hero {
-    min-height: 110vh;
+    min-height: 100vh;
     padding-top: 140px;
+    position: relative;
+  z-index: 1;
   }
 }
 
@@ -840,6 +844,7 @@ footer {
     font-size: 13px;
   }
 }
+
 
 
 
