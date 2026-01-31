@@ -59,26 +59,37 @@ const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".navbar nav a");
 
 function activateNavLink() {
-  let scrollY = window.pageYOffset;
+  let scrollY = window.scrollY;
+  let pageBottom = scrollY + window.innerHeight;
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 200; // offset for fixed nav
+    const sectionTop = section.offsetTop - 200;
     const sectionHeight = section.offsetHeight;
     const sectionId = section.getAttribute("id");
 
+    // Normal section detection
     if (
       scrollY >= sectionTop &&
       scrollY < sectionTop + sectionHeight
     ) {
-      navLinks.forEach(link => {
-        link.classList.remove("active");
+      setActive(sectionId);
+    }
 
-        if (link.getAttribute("href") === `#${sectionId}`) {
-          link.classList.add("active");
-        }
-      });
+    // Force last section (CONTACT) when at page bottom
+    if (pageBottom >= document.body.scrollHeight - 5) {
+      setActive("contact");
+    }
+  });
+}
+
+function setActive(id) {
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${id}`) {
+      link.classList.add("active");
     }
   });
 }
 
 window.addEventListener("scroll", activateNavLink);
+
