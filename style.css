@@ -875,7 +875,16 @@ footer {
   .hero {
     padding-top: 170px;
   }
+
+    .about-signature {
+    padding-top: 140px;
+  }
+
+  .about-image {
+    margin-top: 40px;
+  }
 }
+
 
 
 
