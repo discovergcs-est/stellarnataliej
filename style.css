@@ -725,10 +725,6 @@ footer {
 
 
 /* ===== MEDIA QUERIES SPECIFICALLY FOR IPHONES ===== */
-/* ================================
-   📱 STELLAR – IPHONE ONLY FIX
-   (iOS Safari)
-================================ */
 
 @supports (-webkit-touch-callout: none) {
 
@@ -843,6 +839,42 @@ footer {
   /* ---------- FOOTER ---------- */
   footer {
     font-size: 13px;
+  }
+}
+
+/* ===== FINAL UNIVERSAL MOBILE NAV FIX ===== */
+@media (max-width: 768px) {
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 20px;
+    background: var(--soft-cream);
+    z-index: 1000;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  /* Prevent hero hiding under nav */
+  .hero {
+    padding-top: 160px;
   }
 }
 
