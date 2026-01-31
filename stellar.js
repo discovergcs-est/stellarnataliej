@@ -54,27 +54,31 @@ const videoCards = document.querySelectorAll('.video-card');
     upBtn.addEventListener('click', scrollToTop);
 
 //NAV BAR
- const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".navbar a");
+ 
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".navbar nav a");
 
-  window.addEventListener("scroll", () => {
-    let current = "";
+function activateNavLink() {
+  let scrollY = window.pageYOffset;
 
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 180;
-      const sectionHeight = section.offsetHeight;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 200; // offset for fixed nav
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute("id");
 
-      if (pageYOffset >= sectionTop &&
-          pageYOffset < sectionTop + sectionHeight) {
-        current = section.getAttribute("id");
-      }
-    });
+    if (
+      scrollY >= sectionTop &&
+      scrollY < sectionTop + sectionHeight
+    ) {
+      navLinks.forEach(link => {
+        link.classList.remove("active");
 
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+        }
+      });
+    }
   });
+}
 
+window.addEventListener("scroll", activateNavLink);
