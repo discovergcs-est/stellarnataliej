@@ -872,11 +872,11 @@ footer {
     font-size: 22px;
   }
 
-  /* Prevent hero hiding under nav */
   .hero {
-    padding-top: 160px;
+    padding-top: 170px;
   }
 }
+
 
 
 
