@@ -44,6 +44,11 @@ body {
   color: var(--burnt-orange);
 }
 
+.navbar a.active {
+  color: var(--burnt-orange);
+  font-weight: 600;
+}
+
 .logo {
   font-weight: 800;
   letter-spacing: 2px;
@@ -884,6 +889,7 @@ footer {
     margin-top: 25px;
   }
 }
+
 
 
 
