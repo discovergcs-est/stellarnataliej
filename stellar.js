@@ -18,70 +18,80 @@ if (navbar) {
 }
 
 
-/* =========================================
+/* =========================
    MOBILE NAVIGATION
-========================================= */
+========================= */
 
 const menuToggle = document.getElementById("menu-toggle");
 const mainNav = document.getElementById("main-nav");
 
+
 if (menuToggle && mainNav) {
 
-  function closeMenu() {
-    menuToggle.classList.remove("active");
-    mainNav.classList.remove("active");
-    navbar?.classList.remove("active");
+    /* OPEN AND CLOSE MENU */
 
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
-  }
+    menuToggle.addEventListener("click", function () {
 
-  menuToggle.addEventListener("click", (event) => {
-    event.stopPropagation();
+        menuToggle.classList.toggle("active");
+        mainNav.classList.toggle("active");
 
-    const isOpen = !mainNav.classList.contains("active");
+        const isOpen = menuToggle.classList.contains("active");
 
-    menuToggle.classList.toggle("active", isOpen);
-    mainNav.classList.toggle("active", isOpen);
-    navbar?.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", isOpen);
 
-    menuToggle.setAttribute("aria-expanded", isOpen);
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-  });
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
 
-  // Close when a navigation link is clicked
-  mainNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-  });
+    });
 
-  // Close when clicking outside
-  document.addEventListener("click", event => {
-    if (
-      !menuToggle.contains(event.target) &&
-      !mainNav.contains(event.target)
-    ) {
-      closeMenu();
-    }
-  });
 
-  // Close with Escape
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      closeMenu();
-    }
-  });
+    /* CLOSE MENU WHEN A LINK IS CLICKED */
 
-  // Reset navigation when returning to desktop
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      closeMenu();
-    }
-  });
+    mainNav.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            menuToggle.classList.remove("active");
+            mainNav.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        });
+
+    });
+
+
+    /* CLOSE MENU WHEN CLICKING OUTSIDE */
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            !menuToggle.contains(event.target) &&
+            !mainNav.contains(event.target)
+        ) {
+
+            menuToggle.classList.remove("active");
+            mainNav.classList.remove("active");
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        }
+
+    });
+
 }
-
 
 /* =========================================
    LOAD MORE PHOTOS
