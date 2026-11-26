@@ -1,8 +1,4 @@
 
-/* =========================================
-   STELLAR WEBSITE STYLESHEET
-========================================= */
-
 :root {
   --burnt-orange: #c65a1e;
   --soft-cream: #f6f1eb;
@@ -27,73 +23,48 @@ body {
   color: var(--dark);
 }
 
-
-/* =========================================
-   NAVIGATION
-========================================= */
+/* ================= NAVIGATION ================= */
 
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   background: var(--soft-cream);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 15px 40px;
   z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
-.navbar .logo {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--burnt-orange);
-  text-decoration: none;
-}
-
-.navbar nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.navbar nav a {
+.navbar a {
+  margin-left: 25px;
   text-decoration: none;
   color: var(--dark);
-  font-size: 13px;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.navbar nav a:hover,
-.navbar nav a.active {
+.navbar a:hover,
+.navbar a.active {
   color: var(--burnt-orange);
 }
 
-.navbar nav a.active {
-  font-weight: 600;
+.navbar .logo {
+  margin-left: 0;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--burnt-orange);
+  font-size: 22px;
 }
 
-
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
+/* ================= GENERAL SECTIONS ================= */
 
 .section {
   padding: 80px 40px;
   position: relative;
   z-index: 2;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
-
-.center {
-  text-align: center;
 }
 
 .light {
@@ -110,41 +81,56 @@ body {
   color: white;
 }
 
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
+}
+
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
 }
 
+/* ================= BUTTONS ================= */
 
-/* =========================================
-   BUTTONS
-========================================= */
-
-.btn-primary {
+.btn-primary,
+.btn-dark,
+.footer-button {
   display: inline-block;
-  margin-top: 25px;
-  padding: 13px 30px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  background: var(--burnt-orange);
   color: white;
   text-decoration: none;
+  border: none;
   border-radius: 30px;
-  font-size: 13px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  padding: 13px 28px;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-dark:hover,
+.footer-button:hover {
+  background: #a84918;
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
+.btn-primary {
+  margin-top: 20px;
+}
 
-/* =========================================
-   INTRODUCTION / SIGNATURE
-   ORIGINAL SECTION PRESERVED
-========================================= */
+.btn-dark {
+  margin-top: 35px;
+  padding: 15px 34px;
+}
+
+/* ================= INTRODUCTION / HOME ================= */
 
 .about-signature {
   position: relative;
@@ -156,14 +142,6 @@ body {
     #f3e8dd 100%
   );
   overflow: visible;
-  display: flex;
-  align-items: center;
-}
-
-.about-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
 }
 
 .about-grid {
@@ -181,12 +159,9 @@ body {
 
 .about-image img {
   width: 100%;
-  display: block;
   border-radius: 32px;
   object-fit: cover;
-  box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.18);
 }
 
 .about-content {
@@ -229,84 +204,192 @@ body {
   max-width: 460px;
 }
 
+/* ================= TRAVEL MARQUEE ================= */
 
-/* =========================================
-   HERO / STELLAR VISION
-   REFINED ORIGINAL DARK DESIGN
-========================================= */
+.stellar-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: var(--burnt-orange);
+  color: var(--soft-cream);
+  padding: 17px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeTravel 32s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 30px;
+  padding-right: 30px;
+}
+
+.marquee-content span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  white-space: nowrap;
+}
+
+.marquee-content i {
+  font-size: 13px;
+  color: #f6d6b8;
+}
+
+@keyframes marqueeTravel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.stellar-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ================= HERO / ABOUT ================= */
 
 .hero {
-  min-height: calc(100vh - 80px);
-  background-color: #111;
-  color: white;
+  min-height: 100vh;
+  background: var(--soft-cream);
+  color: var(--dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 120px 30px 90px;
-  position: relative;
-  z-index: 1;
+  padding: 110px 6%;
 }
 
-.hero-content {
-  max-width: 900px;
+.hero-layout {
   width: 100%;
-  margin: auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 65px;
+  align-items: center;
+}
+
+/* Hero image */
+
+.hero-image {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e8d9ca;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 35px 25px 25px;
+  color: white;
+  background: linear-gradient(
+    transparent,
+    rgba(30, 30, 30, 0.75)
+  );
+}
+
+.image-caption span {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.image-caption p {
+  margin-top: 7px;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* Hero text */
+
+.hero-content {
+  text-align: left;
+  max-width: 620px;
 }
 
 .hero-label {
   display: inline-block;
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
+  color: var(--burnt-orange);
+  font-size: 0.75rem;
   letter-spacing: 3px;
-  margin-bottom: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
 .hero-content h1 {
-  font-size: clamp(34px, 4vw, 48px);
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 30px;
-  color: #fff;
+  color: var(--dark);
+  font-size: clamp(2.5rem, 4.5vw, 4.3rem);
+  font-weight: 500;
+  line-height: 1.12;
+  margin-bottom: 22px;
 }
 
 .hero-content h1 span {
   color: var(--burnt-orange);
+  display: block;
+}
+
+.hero-divider {
+  width: 65px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0 0 25px;
 }
 
 .hero-content p {
-  font-size: 14px;
-  line-height: 1.9;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 18px;
+  color: var(--gray);
+  font-size: 0.91rem;
+  line-height: 1.85;
+  margin-bottom: 16px;
 }
 
 .hero-content p strong {
-  color: #fff;
+  color: var(--dark);
   font-weight: 600;
 }
 
-.hero-content .hero-highlight {
-  color: #fff;
-  margin-top: 25px;
+.hero-message {
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 17px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.hero-content .hero-highlight strong:last-child {
-  color: #e28a4a;
+.hero-message strong {
+  font-size: 0.95rem;
+  color: var(--dark);
+  font-weight: 600;
 }
 
 .hero-content .hero-closing {
-  color: #e8b18d;
-  font-size: 15px;
-  margin-top: 22px;
+  color: var(--burnt-orange);
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
-
-/* =========================================
-   STELLAR MOMENTS / VIDEOS
-========================================= */
+/* ================= VIDEO SECTION ================= */
 
 .video-section {
   padding: 80px 0;
@@ -323,8 +406,7 @@ body {
 .section-subtitle {
   text-align: center;
   margin-bottom: 40px;
-  color: #777;
-  font-size: 14px;
+  color: var(--gray);
 }
 
 .video-grid {
@@ -340,355 +422,203 @@ body {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 16 / 9;
 }
 
 .video-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
 .video-card video {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   display: block;
-  background: #111;
 }
 
 .video-card p {
-  color: #fff;
+  color: white;
   font-weight: 600;
-  padding: 14px 10px;
+  padding: 10px 0;
   text-align: center;
-  font-size: 14px;
 }
 
-
-/* =========================================
-   REGISTRATION SECTION
-========================================= */
-
-.register-section {
-  background: var(--soft-cream);
-  padding: 90px 25px;
+.video-full-display {
+  max-width: 900px;
+  margin: 50px auto 0;
   text-align: center;
-  color: var(--dark);
 }
 
-.register-container {
-  max-width: 780px;
-  margin: auto;
-  padding: 55px 35px;
-  background: #fff;
-  border: 1px solid rgba(198, 90, 30, 0.16);
+.video-full-display video {
+  width: 100%;
   border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(30, 30, 30, 0.06);
+  margin-bottom: 15px;
 }
 
-.register-label,
-.contact-label {
-  display: inline-block;
+.video-full-display p {
+  font-size: 18px;
   color: var(--burnt-orange);
-  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 17px;
+  margin-bottom: 30px;
 }
 
-.register-container h2 {
-  font-size: 34px;
-  line-height: 1.3;
-  color: var(--dark);
+/* ================= REGISTER SECTION ================= */
+
+#register {
+  text-align: center;
+}
+
+#register h2 {
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
-.register-container h2 span {
+#register p {
+  margin: 8px 0;
+  line-height: 1.7;
+}
+
+/* ================= CONTACT SECTION ================= */
+
+#contact h2 {
   color: var(--burnt-orange);
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
-.register-intro {
-  max-width: 600px;
-  margin: 0 auto 15px;
-  font-size: 14px;
-  line-height: 1.9;
-  color: #51433d;
-}
-
-.register-description {
-  max-width: 550px;
-  margin: 0 auto;
-  font-size: 13px;
-  line-height: 1.9;
+#contact p {
   color: var(--gray);
 }
 
-.register-button {
+/* WhatsApp */
+
+.whatsapp-contact {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 13px;
-  margin-top: 30px;
-  padding: 14px 30px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
+  gap: 14px;
+  margin-top: 25px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  background: var(--burnt-orange);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-icon {
+  font-size: 26px;
+  color: white;
+}
+
+.whatsapp-contact a {
   color: white;
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  border-radius: 30px;
-  box-shadow: 0 9px 22px rgba(198, 90, 30, 0.18);
-  transition: all 0.3s ease;
-}
-
-.register-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 13px 28px rgba(198, 90, 30, 0.3);
-}
-
-.register-note {
-  margin-top: 18px;
-  font-size: 11px;
-  color: var(--gray);
-  font-style: italic;
-}
-
-
-/* =========================================
-   TRAVEL-INSPIRED MARQUEE
-========================================= */
-
-.stellar-marquee {
-  width: 100%;
-  overflow: hidden;
-  background: var(--burnt-orange);
-  padding: 17px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: stellarTravel 35s linear infinite;
-}
-
-.marquee-content {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 32px;
-  padding-right: 32px;
-  white-space: nowrap;
-}
-
-.marquee-content span {
-  color: #fff;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
 }
 
-.marquee-content i {
-  color: #f6d4b8;
-  font-size: 13px;
+.whatsapp-contact:hover {
+  background: #a84918;
+  transform: translateY(-2px);
 }
 
-@keyframes stellarTravel {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-  }
-}
-
-
-/* =========================================
-   CONTACT SECTION
-========================================= */
-
-.contact-section {
-  background: var(--soft-cream);
-  padding: 85px 25px;
-  text-align: center;
-}
-
-.contact-container {
-  max-width: 650px;
-  margin: auto;
-}
-
-.contact-container h2 {
-  font-size: 34px;
-  line-height: 1.3;
-  color: var(--dark);
-  margin-bottom: 18px;
-}
-
-.contact-container h2 span {
-  color: var(--burnt-orange);
-}
-
-.contact-container > p {
-  max-width: 510px;
-  margin: 0 auto;
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--gray);
-}
-
-.contact-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 28px;
-  padding: 14px 25px;
-  background: var(--dark);
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.contact-whatsapp > i:first-child {
-  font-size: 21px;
-  color: var(--accent);
-}
-
-.contact-arrow {
-  font-size: 11px;
-  opacity: 0.75;
-}
-
-.contact-whatsapp:hover {
-  background: var(--burnt-orange);
-  transform: translateY(-3px);
-}
-
-.contact-caption {
-  display: block;
-  margin-top: 18px;
-  color: var(--gray);
-  font-size: 11px;
-  font-style: italic;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
+/* ================= FOOTER ================= */
 
 .stellar-footer {
-  background: #111;
+  background: #1e1e1e;
   color: var(--soft-cream);
-  padding: 65px 40px 0;
+  padding: 70px 7% 25px;
 }
 
 .footer-container {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
+  grid-template-columns: 1.4fr 0.7fr 0.8fr 1.2fr;
   gap: 45px;
-  padding-bottom: 50px;
+  padding-bottom: 55px;
 }
-
-/* BRAND */
 
 .footer-logo {
   display: inline-block;
-  color: var(--soft-cream);
-  font-size: 27px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 3px;
-  text-decoration: none;
   margin-bottom: 18px;
 }
 
-.footer-logo span {
-  color: var(--burnt-orange);
-}
-
 .footer-brand p {
-  max-width: 270px;
-  color: #c5bdb7;
-  font-size: 12px;
+  color: #c4bdb5;
+  font-size: 0.85rem;
   line-height: 1.9;
+  max-width: 290px;
 }
 
-/* FOOTER COLUMNS */
-
-.footer-column {
+.footer-links {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 13px;
 }
 
-.footer-column h3 {
+.footer-links h3 {
   color: var(--accent);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 0.95rem;
   margin-bottom: 8px;
 }
 
-.footer-column a,
-.footer-column p {
-  color: #c5bdb7;
-  font-size: 12px;
+.footer-links a {
+  color: #c4bdb5;
   text-decoration: none;
+  font-size: 0.85rem;
   transition: color 0.3s ease;
 }
 
-.footer-column a:hover {
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-note {
+  border-left: 1px solid rgba(246, 241, 235, 0.2);
+  padding-left: 25px;
+}
+
+.footer-eyebrow {
   color: var(--accent);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
-.footer-contact a,
-.footer-contact p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.footer-note h2 {
+  font-size: 1.45rem;
+  line-height: 1.4;
+  font-weight: 500;
+  margin: 15px 0 20px;
 }
 
-.footer-contact i {
-  color: var(--accent);
-  font-size: 13px;
+.footer-button {
+  padding: 11px 20px;
+  font-size: 0.8rem;
 }
-
-/* FOOTER BOTTOM */
 
 .footer-bottom {
-  border-top: 1px solid rgba(246, 241, 235, 0.18);
-  padding: 20px 0;
+  max-width: 1200px;
+  margin: auto;
+  border-top: 1px solid rgba(246, 241, 235, 0.2);
+  padding-top: 22px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 15px;
+  color: #aaa19a;
+  font-size: 0.75rem;
 }
 
-.footer-bottom p {
-  color: #aaa09a;
-  font-size: 10px;
-  letter-spacing: 0.3px;
-}
-
-
-/* =========================================
-   SCROLL TO TOP
-========================================= */
+/* ================= SCROLL TO TOP ================= */
 
 .up {
   position: fixed;
-  bottom: 20px;
+  bottom: 15px;
   right: 20px;
   width: 40px;
   height: 40px;
@@ -696,15 +626,15 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #e28a4a, #c65a1e);
+  background: var(--burnt-orange);
   color: white;
-  box-shadow: 0 10px 25px rgba(198, 90, 30, 0.35);
+  box-shadow: 0 10px 25px rgba(198, 90, 30, 0.25);
   font-size: 16px;
   cursor: pointer;
   z-index: 9999;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .up.show-up-btn {
@@ -714,13 +644,10 @@ body {
 
 .up:hover {
   transform: translateY(-12%);
-  box-shadow: 0 14px 35px rgba(198, 90, 30, 0.55);
+  background: #a84918;
 }
 
-
-/* =========================================
-   ANIMATIONS
-========================================= */
+/* ================= ANIMATION ================= */
 
 @keyframes fadeUp {
   from {
@@ -734,36 +661,25 @@ body {
   }
 }
 
-
-/* =========================================
-   TABLET RESPONSIVE
-========================================= */
+/* ================= TABLETS ================= */
 
 @media (max-width: 1024px) {
 
   .about-signature {
     height: auto;
     min-height: 100vh;
+    overflow: visible;
   }
 
   .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
+    grid-template-columns: 1fr;
+    gap: 45px;
     text-align: center;
   }
 
-  .about-image {
-    order: -1;
-    width: 100%;
+  .about-image img {
     max-width: 500px;
-    margin-bottom: 0;
-  }
-
-  .about-content {
-    order: 1;
-    text-align: center;
+    margin: 0 auto;
   }
 
   .about-line {
@@ -771,27 +687,44 @@ body {
   }
 
   .about-content p {
-    margin: 0 auto 18px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .video-grid {
-    grid-template-columns: 1fr;
+  .hero {
+    min-height: auto;
+    padding: 100px 6%;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+
+  .hero-image {
+    height: 520px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-note {
+    border-left: none;
+    padding-left: 0;
   }
 
   .gallery-item {
     height: 350px;
   }
-
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
 }
 
-
-/* =========================================
-   TABLET / MOBILE NAVIGATION
-========================================= */
+/* ================= MOBILE / TABLETS ================= */
 
 @media (max-width: 768px) {
 
@@ -809,56 +742,94 @@ body {
     gap: 14px;
   }
 
-  .navbar nav a {
+  .navbar a {
     font-size: 13px;
+    margin: 0;
   }
 
-  .logo {
+  .navbar .logo {
     font-size: 22px;
-  }
-
-  .hero {
-    padding: 160px 24px 85px;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-
-  .hero-content p {
-    font-size: 13px;
   }
 
   .about-signature {
     padding-top: 150px;
+    padding-bottom: 70px;
+  }
+
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image {
+    order: -1;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 25px;
   }
 
   .about-content {
-    padding: 0 12px;
-  }
-
-  .about-content h2 {
-    font-size: 26px;
+    order: 1;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
   .about-content p {
-    font-size: 14.5px;
+    margin: 0 auto 18px;
   }
 
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero {
+    padding: 70px 25px;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero-image {
+    height: 430px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .hero-content {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero-divider {
+    margin-bottom: 22px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
   }
 
   .split {
     grid-template-columns: 1fr;
   }
 
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    height: 400px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-
-/* =========================================
-   PHONE RESPONSIVE
-========================================= */
+/* ================= SMALL PHONES ================= */
 
 @media (max-width: 480px) {
 
@@ -866,124 +837,118 @@ body {
     font-size: 15px;
   }
 
-  /* NAV */
-
   .navbar {
-    padding: 14px 15px;
+    padding: 13px 12px;
     gap: 10px;
   }
 
-  .logo {
-    font-size: 22px;
+  .navbar .logo {
+    font-size: 21px;
   }
 
   .navbar nav {
-    gap: 10px 15px;
+    gap: 12px;
   }
 
   .navbar nav a {
     font-size: 12px;
   }
 
-  /* INTRODUCTION */
-
-  #home {
-    padding-top: 175px;
-    padding-bottom: 65px;
-  }
-
   .about-signature {
-    min-height: auto;
+    padding-top: 155px;
+    padding-bottom: 60px;
   }
 
-  .about-grid {
-    gap: 28px;
+  .about-content {
+    padding: 0 8px;
+  }
+
+  .about-content h2 {
+    font-size: 25px;
+  }
+
+  .about-content p {
+    font-size: 14.5px;
+    line-height: 1.75;
   }
 
   .about-image {
     max-width: 320px;
-    margin: 25px auto 0;
   }
 
   .about-image img {
     border-radius: 18px;
   }
 
-  .about-content {
-    padding: 0 12px;
+  .stellar-marquee {
+    padding: 14px 0;
   }
 
-  .about-content h2 {
-    font-size: 24px;
+  .marquee-content {
+    gap: 20px;
+    padding-right: 20px;
   }
 
-  .about-content p {
+  .marquee-content span {
+    font-size: 0.68rem;
+    letter-spacing: 1.8px;
+  }
+
+  .hero {
+    padding: 55px 20px;
+  }
+
+  .hero-image {
+    height: 360px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-content p {
     font-size: 14px;
     line-height: 1.8;
   }
 
-  .about-intro {
-    font-size: 15px;
-  }
-
-  /* HERO */
-
-  .hero {
-    min-height: 100svh;
-    height: auto;
-    padding: 165px 18px 80px;
-  }
-
-  .hero-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-
-  .hero-content h1 {
-    font-size: 29px;
-    line-height: 1.3;
-  }
-
-  .hero-content p {
-    font-size: 12px;
-    line-height: 1.85;
-    margin-bottom: 15px;
+  .hero-message strong {
+    font-size: 0.85rem;
   }
 
   .hero-content .hero-closing {
-    font-size: 13px;
+    font-size: 0.9rem;
   }
 
   .btn-primary {
-    padding: 12px 22px;
-    font-size: 13px;
-  }
-
-  /* VIDEOS */
-
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .video-card {
-    border-radius: 14px;
-  }
-
-  .video-card p {
+    padding: 12px 23px;
     font-size: 14px;
   }
 
+  .section {
+    padding: 65px 20px;
+  }
+
   .section-title {
-    font-size: 28px;
+    font-size: 2rem;
   }
 
-  .section-subtitle {
+  #register h2 {
+    font-size: 1.6rem;
+  }
+
+  .btn-dark {
+    padding: 13px 25px;
+    font-size: 14px;
+  }
+
+  .whatsapp-contact {
+    gap: 10px;
+    padding: 12px 17px;
+  }
+
+  .whatsapp-contact a {
     font-size: 13px;
-    padding: 0 15px;
   }
-
-  /* GALLERY */
 
   .gallery-grid {
     grid-template-columns: 1fr;
@@ -993,172 +958,59 @@ body {
     height: 450px;
   }
 
-  /* REGISTER */
-
-  .register-section {
-    padding: 65px 18px;
-  }
-
-  .register-container {
-    padding: 40px 22px;
-  }
-
-  .register-container h2 {
-    font-size: 27px;
-  }
-
-  .register-intro {
-    font-size: 13px;
-  }
-
-  .register-description {
-    font-size: 12px;
-  }
-
-  .register-button {
-    padding: 13px 21px;
-    font-size: 12px;
-  }
-
-  /* MARQUEE */
-
-  .stellar-marquee {
-    padding: 14px 0;
-  }
-
-  .marquee-content {
-    gap: 22px;
-    padding-right: 22px;
-  }
-
-  .marquee-content span {
-    font-size: 10px;
-    letter-spacing: 1.2px;
-  }
-
-  .marquee-content i {
-    font-size: 11px;
-  }
-
-  /* CONTACT */
-
-  .contact-section {
-    padding: 65px 20px;
-  }
-
-  .contact-container h2 {
-    font-size: 27px;
-  }
-
-  .contact-container > p {
-    font-size: 13px;
-  }
-
-  .contact-whatsapp {
-    padding: 13px 18px;
-    font-size: 12px;
-  }
-
-  /* FOOTER */
-
-  .stellar-footer {
-    padding: 50px 25px 0;
-  }
-
   .footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 35px 22px;
-    padding-bottom: 35px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-brand p {
-    max-width: 310px;
-  }
-
-  .footer-logo {
-    font-size: 24px;
-  }
-
-  .footer-column h3 {
-    font-size: 12px;
-  }
-
-  .footer-column a,
-  .footer-column p {
-    font-size: 11px;
+    grid-template-columns: 1fr;
+    gap: 35px;
   }
 
   .footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 8px;
+    line-height: 1.7;
   }
 
-  .footer-bottom p {
-    font-size: 10px;
+  .footer-note h2 {
+    font-size: 1.3rem;
   }
 
-  /* SCROLL TO TOP */
-
-  .up {
-    width: 36px;
-    height: 36px;
-    right: 15px;
-    bottom: 15px;
+  footer {
+    font-size: 13px;
   }
-
 }
 
-
-/* =========================================
-   EXTRA SMALL PHONES
-========================================= */
-
-@media (max-width: 360px) {
-
-  .navbar nav {
-    gap: 9px 12px;
-  }
-
-  .navbar nav a {
-    font-size: 11px;
-  }
-
-  .hero-content h1 {
-    font-size: 26px;
-  }
-
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-brand {
-    grid-column: auto;
-  }
-
-}
-
-
-/* =========================================
-   SAFARI / IPHONE ADJUSTMENTS
-========================================= */
+/* ================= IPHONE SAFARI ================= */
 
 @supports (-webkit-touch-callout: none) {
 
   .hero {
-    min-height: 100svh;
-  }
-
-  .about-signature {
     min-height: auto;
   }
 
-  .video-card video {
-    background: #111;
+  .about-signature {
+    height: auto;
+    min-height: 100vh;
   }
 
+  .video-card video {
+    background: black;
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
