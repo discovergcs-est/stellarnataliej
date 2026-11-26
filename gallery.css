@@ -47,7 +47,7 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--soft-cream);
+  background: var(--gallery-cream);
   display: flex;
   justify-content: space-between;
   padding: 15px 40px;
@@ -62,18 +62,18 @@ a {
 }
 
 .navbar a:hover {
-  color: var(--burnt-orange);
+  color: var(--gallery-orange);
 }
 
 .navbar a.active {
-  color: var(--burnt-orange);
+  color: var(--gallery-orange);
   font-weight: 600;
 }
 
 .logo {
   font-weight: 800;
   letter-spacing: 2px;
-  color: var(--burnt-orange);
+  color: var(--gallery-orange);
 }
 
 /* ========================================
