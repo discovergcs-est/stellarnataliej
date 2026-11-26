@@ -70,7 +70,7 @@ a {
 }
 
 .section {
-  padding: 80px 40px;
+  padding: 75px 40px;
   position: relative;
 }
 
@@ -227,6 +227,7 @@ a {
 }
 
 .about-content h2 {
+  font-family: 'Poppins', sans-serif;
   font-size: var(--font-subheading);
   line-height: 1.4;
   font-weight: 600;
@@ -269,6 +270,7 @@ a {
   display: flex;
   width: max-content;
   animation: marqueeTravel 35s linear infinite;
+  will-change: transform;
 }
 
 .marquee-content {
@@ -291,6 +293,8 @@ a {
   font-size: var(--font-small);
 }
 
+/* Seamless continuous marquee */
+
 @keyframes marqueeTravel {
   from {
     transform: translateX(0);
@@ -305,10 +309,10 @@ a {
   animation-play-state: paused;
 }
 
-/* Space between the marquee and Register */
+/* Space above Register */
 
 .stellar-marquee + #register {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 
@@ -321,7 +325,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 6%;
+  padding: 80px 6%;
   background: var(--soft-cream);
   color: var(--dark);
 }
@@ -390,6 +394,7 @@ a {
 }
 
 .hero-content h1 {
+  font-family: 'Poppins', sans-serif;
   color: var(--dark);
   font-size: var(--font-display);
   font-weight: 500;
@@ -444,7 +449,7 @@ a {
 ========================================= */
 
 .video-section {
-  padding: 80px 40px;
+  padding: 75px 40px;
   background: var(--soft-cream);
 }
 
@@ -502,7 +507,7 @@ a {
 ========================================= */
 
 #register {
-  padding: 90px 30px;
+  padding: 75px 30px;
   text-align: center;
 }
 
@@ -516,6 +521,7 @@ a {
 }
 
 #register h2 {
+  font-family: 'Poppins', sans-serif;
   font-size: var(--font-heading);
   line-height: 1.4;
   font-weight: 600;
@@ -532,7 +538,7 @@ a {
 ========================================= */
 
 #contact {
-  padding: 85px 30px;
+  padding: 75px 30px;
 }
 
 .contact-label {
@@ -545,6 +551,7 @@ a {
 }
 
 #contact h2 {
+  font-family: 'Poppins', sans-serif;
   color: var(--dark);
   font-size: var(--font-heading);
   font-weight: 600;
@@ -663,6 +670,7 @@ a {
 }
 
 .footer-note h2 {
+  font-family: 'Poppins', sans-serif;
   font-size: var(--font-subheading);
   line-height: 1.5;
   font-weight: 500;
@@ -754,7 +762,7 @@ a {
 
   .hero {
     min-height: auto;
-    padding: 85px 5%;
+    padding: 75px 5%;
   }
 
   .hero-layout {
@@ -848,7 +856,7 @@ a {
   }
 
   .hero {
-    padding: 70px 25px;
+    padding: 65px 25px;
   }
 
   .hero-layout {
@@ -964,15 +972,15 @@ a {
   }
 
   .section {
-    padding: 65px 20px;
+    padding: 55px 20px;
   }
 
   #register {
-    padding: 70px 20px;
+    padding: 60px 20px;
   }
 
   #contact {
-    padding: 65px 20px;
+    padding: 60px 20px;
   }
 
   .whatsapp-contact {
