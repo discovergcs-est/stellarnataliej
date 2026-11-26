@@ -1,10 +1,27 @@
+
+/* =========================================
+   STELLAR WEBSITE
+   Main Stylesheet
+========================================= */
+
+
+/* =========================================
+   COLOUR VARIABLES
+========================================= */
+
 :root {
   --burnt-orange: #c65a1e;
   --soft-cream: #f6f1eb;
   --dark: #1e1e1e;
   --gray: #6f6f6f;
   --accent: #e28a4a;
+  --white: #ffffff;
 }
+
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
 
 * {
   margin: 0;
@@ -14,360 +31,141 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--dark);
+  background: var(--white);
 }
 
-/* ===== NAV ===== */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--soft-cream);
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 40px;
-  z-index: 1000;
+img {
+  max-width: 100%;
 }
 
-.navbar a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: var(--black);
-  font-weight: 500;
-}
-
-.navbar a:hover {
-  color: var(--burnt-orange);
-}
-
-.navbar a.active {
-  color: var(--burnt-orange);
-  font-weight: 600;
-}
-
-.logo {
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: var(--burnt-orange);
-}
-
-/* ===== HERO ===== */
-.hero {
-  min-height: calc(100vh - 80px);
-  background-color: #111;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-
-}
-
-.hero span {
-  color: var(--burnt-orange);
-}
-
-.btn-primary {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16); 
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  color: white; 
-  text-decoration: none;
-  border-radius: 30px;
-}
-
-
-.btn-dark:hover {
-  background: linear-gradient(135deg, #c65a1e, #8b3f16); 
-}
-
-/* ===== SECTIONS ===== */
-.section {
-  padding: 80px 40px;
-  position: relative;
-  z-index: 2;
-}
-
-.light {
-  background: var(--soft-cream);
-}
-
-.dark {
-  background: #111;
-  color: white;
-}
-
-.accent {
-  background: var(--burnt-orange);
-  color: white;
+a {
+  transition: all 0.3s ease;
 }
 
 .container {
   max-width: 1100px;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
+.section {
+  padding: 80px 40px;
+  position: relative;
 }
 
 .center {
   text-align: center;
 }
 
-/* ===== CARD ===== */
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-}
 
-.card ul {
-  list-style: none;
-}
+/* =========================================
+   NAVIGATION BAR
+========================================= */
 
-.card li {
-  margin: 12px 0;
-}
-
-/* ===== GALLERY SECTION ===== */
-#gallery {
-  padding: 80px 0;
-  background: #111;
-}
-
-#gallery h2 {
-  text-align: center;
-  color: #fff;
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-}
-
-/* GRID */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-/* IMAGE BOX */
-.gallery-item {
-  height: 300px; /* increased from 220px */
-  border-radius: 16px;
-  overflow: hidden;
-  background: #333;
-}
-
-/* IMAGE FIT */
-.gallery-item img {
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+  min-height: 65px;
+  background: var(--soft-cream);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
-/* HOVER EFFECT */
-.gallery-item:hover img {
-  transform: scale(1.05);
+.navbar .logo {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--burnt-orange);
+  text-decoration: none;
 }
 
-/* ===== STELLAR MOMENTS VIDEOS ===== */
-.video-section {
-  padding: 80px 0;
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.navbar nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
   color: var(--burnt-orange);
 }
 
-.section-subtitle {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #777;
-}
 
-/* GRID LAYOUT */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
+/* =========================================
+   ABOUT / INTRODUCTION SECTION
+========================================= */
 
-/* VIDEO CARD */
-/* VIDEO GRID */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* side-by-side */
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-/* VIDEO CARD */
-.video-card {
-  background: #111;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 16/9; /* consistent video height */
-}
-
-.video-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-}
-
-/* Video inside card (preview) */
-.video-card video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.video-card p {
-  color: #fff;
-  font-weight: 600;
-  padding: 10px 0;
-  text-align: center;
-}
-
-/* Full Video Player */
-.video-full-display {
-  max-width: 900px;
-  margin: 50px auto 0 auto;
-  text-align: center;
-}
-
-.video-full-display video {
-  width: 100%;
-  border-radius: 16px;
-  margin-bottom: 15px;
-}
-
-.video-full-display p {
-  font-size: 18px;
-  color: #c65a1e; /* Stellar accent */
-  font-weight: 600;
-  margin-bottom: 30px;
-}
-
-/* MOBILE STACK */
-@media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================
-   WHATSAPP CONTACT
-========================= */
-
-.whatsapp-contact {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 25px;
-  padding: 14px 22px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-.whatsapp-icon {
-  font-size: 26px;
-  color: white;
-}
-
-.whatsapp-contact a {
-  color: white;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.whatsapp-contact:hover {
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  padding: 20px;
-  background: black;
-  color: white;
-  text-align: center;
-}
-/* =====================================
-   STELLAR ABOUT SECTION REDESIGN
-===================================== */
-
-.about-signature.section {
-  position: relative;
-  height: auto;
-  min-height: 0;
+.about-signature {
+  background: var(--white);
   padding: 125px 40px 90px;
-  background: #ffffff;
   overflow: hidden;
 }
 
-.about-signature .about-grid {
-  max-width: 1100px;
-  margin: 0 auto;
+.about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 75px;
 }
 
+
 /* TEXT CONTENT */
 
-.about-signature .about-content {
+.about-content {
   text-align: left;
   animation: fadeUp 1s ease forwards;
 }
 
-.about-signature .about-label {
+.about-label {
   display: inline-block;
-  color: var(--burnt-orange);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--burnt-orange);
   margin-bottom: 15px;
 }
 
-.about-signature .about-content h2 {
+.about-content h2 {
   font-size: 34px;
   font-weight: 700;
   line-height: 1.3;
   color: var(--dark);
-  margin: 0 0 12px;
+  margin-bottom: 12px;
 }
 
-.about-signature .about-content h3 {
+.about-content h3 {
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.6;
   color: var(--burnt-orange);
+  line-height: 1.6;
   margin-bottom: 25px;
 }
 
-/* INTRODUCTION */
 
-.about-signature .about-intro {
+/* INTRODUCTORY PARAGRAPH */
+
+.about-content .about-intro {
+  max-width: 480px;
   border-left: 3px solid var(--accent);
   padding-left: 20px;
   font-size: 14px;
@@ -375,18 +173,18 @@ footer {
   line-height: 1.9;
   color: var(--dark);
   margin-bottom: 20px;
-  max-width: 480px;
 }
 
-.about-signature .about-content p:not(.about-intro) {
+.about-content p:not(.about-intro) {
+  max-width: 480px;
   font-size: 13px;
   line-height: 1.9;
   color: var(--gray);
   margin-bottom: 14px;
-  max-width: 480px;
 }
 
-/* BUTTONS */
+
+/* ABOUT BUTTONS */
 
 .about-buttons {
   display: flex;
@@ -398,19 +196,23 @@ footer {
 .about-cta {
   display: inline-block;
   padding: 13px 25px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
-  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    #c65a1e,
+    #8b3f16
+  );
+  color: var(--white);
   text-decoration: none;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease;
 }
 
 .about-cta:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(198, 90, 30, 0.2);
 }
+
 
 /* CIRCULAR PLAY BUTTON */
 
@@ -422,10 +224,9 @@ footer {
   align-items: center;
   border-radius: 50%;
   background: var(--dark);
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
   font-size: 13px;
-  transition: all 0.3s ease;
 }
 
 .about-play:hover {
@@ -433,34 +234,32 @@ footer {
   transform: scale(1.08);
 }
 
-/* IMAGE */
 
-.about-signature .about-image {
+/* ABOUT IMAGE */
+
+.about-image {
   position: relative;
   width: 100%;
-  max-width: none;
-  margin: 0;
-  order: initial;
 }
 
-.about-signature .about-image img {
+.about-image img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 0;
-  box-shadow: none;
 }
 
-/* VERTICAL ORANGE IMAGE LABEL */
+
+/* VERTICAL IMAGE LABEL */
 
 .about-image-tag {
   position: absolute;
-  left: -18px;
   top: 35px;
+  left: -18px;
   background: var(--burnt-orange);
-  color: white;
+  color: var(--white);
   padding: 18px 12px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -470,115 +269,528 @@ footer {
   z-index: 2;
 }
 
-/* =====================================
-   TABLET
-===================================== */
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+  min-height: 100vh;
+  background: #111111;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 130px 40px 90px;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero-content h1 {
+  font-size: 44px;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.hero-content h1 span {
+  color: var(--burnt-orange);
+}
+
+.hero-content p {
+  max-width: 780px;
+  margin: 0 auto 20px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #eeeeee;
+}
+
+.hero-content strong {
+  color: var(--white);
+}
+
+.hero-content em {
+  color: #e9b18d;
+}
+
+
+/* HERO BUTTON */
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 13px 28px;
+  background: linear-gradient(
+    135deg,
+    #c65a1e,
+    #8b3f16
+  );
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(198, 90, 30, 0.25);
+}
+
+
+/* =========================================
+   STELLAR MOMENTS / VIDEOS
+========================================= */
+
+.video-section {
+  padding: 85px 40px;
+  background: var(--soft-cream);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  color: var(--burnt-orange);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 40px;
+}
+
+
+/* VIDEO GRID */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+
+/* VIDEO CARD */
+
+.video-card {
+  background: var(--dark);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000000;
+}
+
+.video-card p {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px;
+}
+
+
+/* =========================================
+   REGISTRATION SECTION
+========================================= */
+
+.accent {
+  background: var(--burnt-orange);
+  color: var(--white);
+}
+
+.accent h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.accent p {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+
+/* REGISTER BUTTON */
+
+.btn-dark {
+  display: inline-block;
+  padding: 16px 32px;
+  margin-top: 30px;
+  background: var(--dark);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(
+    135deg,
+    #c65a1e,
+    #8b3f16
+  );
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.light {
+  background: var(--soft-cream);
+  color: var(--dark);
+}
+
+.light h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.light p {
+  font-size: 14px;
+  color: var(--gray);
+}
+
+
+/* WHATSAPP CONTACT */
+
+.whatsapp-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 25px;
+  padding: 14px 24px;
+  border-radius: 50px;
+  background: linear-gradient(
+    135deg,
+    #c65a1e,
+    #8b3f16
+  );
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-contact a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.whatsapp-icon {
+  font-size: 24px;
+  color: var(--white);
+}
+
+.whatsapp-contact:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  padding: 22px;
+  background: #111111;
+  color: var(--white);
+  text-align: center;
+}
+
+footer p {
+  font-size: 13px;
+}
+
+
+/* =========================================
+   SCROLL TO TOP BUTTON
+========================================= */
+
+.up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #e28a4a,
+    #c65a1e
+  );
+  color: var(--white);
+  box-shadow: 0 10px 25px rgba(198, 90, 30, 0.35);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.up.show-up-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.up:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(198, 90, 30, 0.55);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
 
 @media (max-width: 1024px) {
 
-  .about-signature.section {
-    padding: 130px 35px 75px;
+  /* ABOUT SECTION */
+
+  .about-signature {
+    padding: 125px 35px 75px;
   }
 
-  .about-signature .about-grid {
-    gap: 45px;
-  }
-
-  .about-signature .about-content h2 {
-    font-size: 29px;
-  }
-
-}
-
-/* =====================================
-   MOBILE
-===================================== */
-
-@media (max-width: 768px) {
-
-  .about-signature.section {
-    padding: 150px 25px 65px;
-    min-height: 0;
-  }
-
-  .about-signature .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  .about-grid {
     gap: 40px;
   }
 
-  .about-signature .about-content {
-    order: 1;
-    text-align: left;
-    padding: 0;
-    margin: 0;
+  .about-content h2 {
+    font-size: 29px;
   }
 
-  .about-signature .about-content h2 {
-    font-size: 30px;
-  }
+  /* HERO */
 
-  .about-signature .about-content h3 {
-    font-size: 15px;
-  }
-
-  .about-signature .about-content p:not(.about-intro) {
-    font-size: 13px;
-  }
-
-  .about-signature .about-image {
-    order: 2;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-  }
-
-  .about-signature .about-image img {
-    width: 100%;
-    max-width: none;
-    aspect-ratio: 4 / 3;
-    border-radius: 0;
-  }
-
-  .about-image-tag {
-    left: -8px;
-    top: 25px;
-    padding: 14px 9px;
-    font-size: 9px;
+  .hero-content h1 {
+    font-size: 38px;
   }
 
 }
 
-/* SMALL PHONES */
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* NAVIGATION */
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 15px;
+  }
+
+  .navbar .logo {
+    font-size: 22px;
+  }
+
+  .navbar nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 17px;
+  }
+
+  .navbar nav a {
+    font-size: 12px;
+  }
+
+
+  /* ABOUT SECTION */
+
+  .about-signature {
+    padding: 150px 25px 65px;
+  }
+
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 35px;
+  }
+
+  .about-content {
+    order: 1;
+    text-align: left;
+  }
+
+  .about-content h2 {
+    font-size: 30px;
+  }
+
+  .about-image {
+    order: 2;
+    width: 100%;
+  }
+
+  .about-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    min-height: auto;
+    padding: 180px 25px 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+
+  /* VIDEOS */
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .video-section {
+    padding: 70px 25px;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+
+  /* REGISTRATION */
+
+  .accent h2 {
+    font-size: 26px;
+  }
+
+
+  /* CONTACT */
+
+  .light h2 {
+    font-size: 27px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
 
 @media (max-width: 480px) {
 
-  .about-signature.section {
-    padding: 160px 20px 55px;
+  body {
+    font-size: 14px;
   }
 
-  .about-signature .about-grid {
-    gap: 32px;
+  /* NAVIGATION */
+
+  .navbar {
+    padding: 13px 12px;
+    gap: 10px;
   }
 
-  .about-signature .about-content h2 {
+  .navbar .logo {
+    font-size: 21px;
+  }
+
+  .navbar nav {
+    gap: 9px 13px;
+  }
+
+  .navbar nav a {
+    font-size: 11px;
+  }
+
+
+  /* ABOUT SECTION */
+
+  .about-signature {
+    padding: 155px 20px 55px;
+  }
+
+  .about-grid {
+    gap: 30px;
+  }
+
+  .about-content h2 {
     font-size: 26px;
     line-height: 1.35;
   }
 
-  .about-signature .about-content h3 {
+  .about-content h3 {
     font-size: 14px;
   }
 
-  .about-signature .about-intro {
+  .about-content .about-intro {
     font-size: 13px;
     padding-left: 15px;
   }
 
-  .about-signature .about-content p:not(.about-intro) {
+  .about-content p:not(.about-intro) {
     font-size: 12.5px;
     line-height: 1.8;
+  }
+
+  .about-image-tag {
+    top: 20px;
+    left: -8px;
+    padding: 13px 9px;
+    font-size: 8px;
   }
 
   .about-cta {
@@ -591,521 +803,84 @@ footer {
     height: 40px;
   }
 
-}
 
-/* ===== STELLAR REGISTER BUTTON ===== */
-.btn-dark {
-  display: inline-block;
-  padding: 24px 40px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 40px;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  margin-top: 50px; 
-}
+  /* HERO */
 
-    /* ===
-       Scroll to Top Button
-   === */
-
-    .up {
-      position: fixed;
-      bottom: 10px;
-      right: 20px;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #e28a4a, #c65a1e);
-      color: white;
-      box-shadow: 0 10px 25px rgba(198, 90, 30, 0.35);
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 9999; 
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .up.show-up-btn {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .up:hover {
-     transform: translateY(-12%);
-     box-shadow: 0 14px 35px rgba(198, 90, 30, 0.55);
-    }
-
-
-/* ====
-   RESPONSIVE DESIGN 
-==== */
-
-/* ---------- Large Tablets / Small Laptops ---------- */
-@media (max-width: 1024px) {
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    text-align: center;
-  }
-
-  .about-image img {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .about-line {
-    margin: 0 auto 26px;
+  .hero {
+    padding: 170px 20px 85px;
   }
 
   .hero-content h1 {
-    font-size: 42px;
+    font-size: 29px;
+    line-height: 1.3;
   }
 
   .hero-content p {
-    font-size: 16px;
-  }
-
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero {
-    min-height: 100vh;
-    padding-top: 140px;
-    position: relative;
-  z-index: 1;
-  }
-}
-
-
-/* ---------- Tablets ---------- */
-@media (max-width: 768px) {
-
-  /* NAV */
-  .navbar {
-    flex-direction: column;
-    gap: 12px;
-    padding: 20px;
-  }
-
-  .navbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 18px;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 120px 24px;
-    text-align: center;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-
-  .hero-content span {
-    display: block;
-  }
-
-  /* ABOUT / SIGNATURE */
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-content {
-    order: 1;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .about-image {
-    order: 2;
-    width: 100%;
-  }
-
-  .about-content p {
-    margin: 0 auto;
-  }
-
-  /* GALLERY */
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ---------- Phones ---------- */
-@media (max-width: 480px) {
-
-  body {
-    font-size: 15px;
-  }
-
-  /* NAV */
-  .logo {
-    font-size: 22px;
-  }
-
-  .navbar nav a {
-    font-size: 14px;
-  }
-
-  /* FIX NAV OVERLAP */
-  #home {
-    padding-top: 180px;
-    padding-bottom: 80px;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 100px 18px;
-  }
-
-  .hero-content h1 {
-    font-size: 30px;
-    line-height: 1.25;
-  }
-
-  .hero-content p {
-    font-size: 14.5px;
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .btn-primary {
     padding: 12px 22px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
-  /* ABOUT / SIGNATURE */
-  .about-content {
-    padding: 0 12px;
-  }
-
-  .about-content h2 {
-    font-size: 26px;
-  }
-
-  .about-content p {
-    font-size: 14.5px;
-  }
-
-  .about-image {
-    margin-top: 40px;
-  }
-
-  .about-image img {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    border-radius: 16px;
-  }
 
   /* VIDEOS */
-  .video-card p {
-    font-size: 14px;
+
+  .video-section {
+    padding: 60px 20px;
   }
 
-  /* GALLERY */
-  .gallery-grid {
-    grid-template-columns: 1fr;
+  .section-title {
+    font-size: 27px;
   }
+
+  .section-subtitle {
+    font-size: 12px;
+  }
+
+  .video-card p {
+    font-size: 13px;
+  }
+
+
+  /* REGISTRATION */
+
+  .accent h2 {
+    font-size: 23px;
+  }
+
+  .accent p {
+    font-size: 13px;
+  }
+
+  .btn-dark {
+    padding: 14px 27px;
+    font-size: 12px;
+  }
+
 
   /* CONTACT */
-  .contact-email {
-    font-size: 14px;
+
+  .light h2 {
+    font-size: 25px;
   }
 
-  footer {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .about-signature {
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
-  }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .split {
-    grid-template-columns: 1fr;
-  }
-
-  .navbar {
-    flex-direction: column;
+  .whatsapp-contact {
     gap: 10px;
-  }
-}
-
-/* Animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== MAKE GALLERY IMAGES TALLER ON MOBILE/TABLET ===== */
-@media (max-width: 1024px) {
-  .gallery-item {
-    height: 350px; /* taller for tablets */
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-item {
-    height: 400px; /* even taller for small tablets */
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-item {
-    height: 450px; /* tallest for phones */
-  }
-}
-
-/* ===== MOVE SIGNATURE IMAGE TO FRONT ON MOBILE/TABLETS ===== */
-@media (max-width: 1024px) {
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 13px 18px;
   }
 
-  .about-image {
-    order: -1; /* signature first */
-    width: 100%;
-    margin-bottom: 30px;
+  .whatsapp-contact a {
+    font-size: 12px;
   }
 
-  .about-content {
-    order: 1;
-    text-align: center;
-  }
-}
 
-@media (max-width: 480px) {
-  .about-image {
-    order: -1;
-    max-width: 320px;
-    margin-bottom: 30px;
-  }
+  /* FOOTER */
 
-  .about-content {
-    order: 1;
-    text-align: center;
-  }
-}
-
-
-/* ===== MEDIA QUERIES SPECIFICALLY FOR IPHONES ===== */
-
-@supports (-webkit-touch-callout: none) {
-
-  /* ---------- GLOBAL SCALE DOWN ---------- */
-  body {
-    font-size: 14.5px;
-  }
-
-  h1 {
-    font-size: 30px;
-    line-height: 1.25;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 14.5px;
-  }
-
-  /* ---------- HERO FIX ---------- */
-  .hero {
-    min-height: 100svh;
-    height: auto;
-    padding: 140px 20px 120px; /* top & bottom space */
-  }
-
-  .btn-primary {
-    padding: 11px 22px;
-    font-size: 14px;
-  }
-
-  /* ---------- NAV ---------- */
-  .navbar {
-    padding: 16px 20px;
-  }
-
-  .navbar a {
-    font-size: 14px;
-  }
-
-  .logo {
-    font-size: 22px;
-  }
-
-  /* ---------- GALLERY ---------- */
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .gallery-item {
-    height: 260px;
-    border-radius: 14px;
-  }
-
-  /* ---------- VIDEO PREVIEWS ---------- */
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .video-card {
-    aspect-ratio: 16 / 9;
-  }
-
-  .video-card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: black;
-  }
-
-  .video-card p {
-    font-size: 14px;
-  }
-
-  /* ---------- ABOUT / SIGNATURE ---------- */
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-image {
-    order: -1;
-    max-width: 300px;
-    margin-bottom: 26px;
-  }
-
-  .about-image img {
-    border-radius: 18px;
-  }
-
-  .about-content h2 {
-    font-size: 24px;
-  }
-
-  .about-content p {
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
-
-  /* ---------- BUTTONS ---------- */
-  .btn-dark {
-    padding: 18px 30px;
-    font-size: 14px;
-    margin-top: 40px;
-  }
-
-  /* ---------- FOOTER ---------- */
   footer {
-    font-size: 13px;
+    font-size: 12px;
   }
+
 }
-
-/* ===== FINAL UNIVERSAL MOBILE NAV FIX ===== */
-@media (max-width: 768px) {
-
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 14px 20px;
-    background: var(--soft-cream);
-    z-index: 1000;
-  }
-
-  .navbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .navbar a {
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .logo {
-    font-size: 22px;
-  }
-
-  .hero {
-    padding-top: 170px;
-  }
-
-    .about-signature {
-    padding-top: 140px;
-  }
-
-  .about-image {
-    margin-top: 25px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
