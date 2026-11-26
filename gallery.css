@@ -1,66 +1,55 @@
 
 /* ===================================
-   STELLAR GALLERY PAGE
+   STELLAR INSPIRATIONS GALLERY
 =================================== */
 
 body {
-  background: #f6f1eb;
   font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  background: var(--soft-cream);
 }
 
-/* Navigation logo link */
-
-.navbar .logo a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Active navigation link */
-
-.navbar nav a.active {
-  color: #c65a1e;
-}
-
-/* Main gallery */
+/* MAIN GALLERY */
 
 .stellar-gallery {
   max-width: 1250px;
   margin: 0 auto;
   padding: 140px 45px 90px;
-  background: #f6f1eb;
+  background: var(--soft-cream);
 }
 
-/* Heading */
+/* GALLERY HEADING */
 
 .gallery-intro {
   text-align: center;
   max-width: 650px;
-  margin: 0 auto 65px;
+  margin: 0 auto 60px;
 }
 
 .gallery-eyebrow {
-  color: #c65a1e;
-  font-size: 10px;
+  display: block;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  color: var(--burnt-orange);
+  margin-bottom: 12px;
 }
 
 .gallery-intro h1 {
-  font-size: clamp(42px, 6vw, 66px);
-  color: #1e1e1e;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -2px;
-  margin: 12px 0;
+  color: var(--dark);
+  margin-bottom: 15px;
 }
 
 .gallery-intro p {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.9;
-  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray);
+  font-weight: 400;
 }
 
-/* Masonry-style grid */
+/* PHOTO GRID */
 
 .stellar-photo-grid {
   display: grid;
@@ -70,15 +59,12 @@ body {
   gap: 14px;
 }
 
-/* Individual cards */
-
 .stellar-photo {
   position: relative;
   overflow: hidden;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #ddd;
+  border-radius: 8px;
   min-width: 0;
+  background: #e5e5e5;
 }
 
 .stellar-photo.wide {
@@ -89,133 +75,59 @@ body {
   grid-row: span 2;
 }
 
-/* Images */
+/* IMAGES ONLY */
 
 .stellar-photo img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.7s ease;
+  transition: transform 0.6s ease;
 }
-
-/* Image overlay */
-
-.stellar-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.78),
-    rgba(0, 0, 0, 0.10) 65%,
-    transparent
-  );
-  transition: background 0.3s ease;
-  pointer-events: none;
-}
-
-/* Captions */
-
-.photo-caption {
-  position: absolute;
-  z-index: 2;
-  bottom: 20px;
-  left: 20px;
-  right: 15px;
-  color: white;
-  pointer-events: none;
-}
-
-.photo-caption span {
-  display: block;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #f6c7a5;
-}
-
-.photo-caption h3 {
-  font-size: 15px;
-  line-height: 1.4;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Hover */
 
 .stellar-photo:hover img {
-  transform: scale(1.07);
+  transform: scale(1.04);
 }
 
-.stellar-photo:hover::after {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.12) 70%,
-    transparent
-  );
-}
-
-/* Bottom message */
+/* GALLERY BOTTOM */
 
 .gallery-bottom {
   text-align: center;
-  padding: 65px 15px 0;
+  padding: 60px 15px 0;
 }
 
 .gallery-bottom p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: #1e1e1e;
+  font-size: 15px;
+  color: var(--gray);
 }
 
 .gallery-bottom a {
   display: inline-block;
-  margin-top: 12px;
-  color: #c65a1e;
-  font-size: 12px;
+  margin-top: 15px;
+  color: var(--burnt-orange);
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  letter-spacing: 0.5px;
-}
-
-.gallery-bottom a i {
-  margin-left: 7px;
-  transition: transform 0.3s ease;
-}
-
-.gallery-bottom a:hover i {
-  transform: translateX(5px);
 }
 
 /* FOOTER */
 
 .stellar-gallery-footer {
-  background: #1e1e1e;
-  color: #f6f1eb;
-  padding: 25px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  font-size: 11px;
-}
-
-.stellar-gallery-footer p {
-  margin: 0;
+  background: var(--dark);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
 }
 
 .stellar-gallery-footer a {
-  color: #e28a4a;
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent);
   text-decoration: none;
 }
 
-/* ===================================
-   LIGHTBOX
-=================================== */
+/* LIGHTBOX */
 
 .gallery-lightbox {
   display: none;
@@ -225,7 +137,6 @@ body {
   background: rgba(15, 15, 15, 0.96);
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   padding: 55px 65px;
 }
 
@@ -235,15 +146,9 @@ body {
 
 .gallery-lightbox img {
   max-width: 90%;
-  max-height: 78vh;
+  max-height: 80vh;
   object-fit: contain;
-  border-radius: 4px;
-}
-
-.gallery-lightbox p {
-  color: white;
-  font-size: 13px;
-  margin-top: 18px;
+  border-radius: 5px;
 }
 
 .gallery-lightbox button {
@@ -268,18 +173,24 @@ body {
   right: 20px;
 }
 
-/* ===================================
-   TABLET
-=================================== */
+/* TABLET */
 
 @media (max-width: 768px) {
 
   .stellar-gallery {
-    padding: 125px 25px 70px;
+    padding: 145px 25px 70px;
   }
 
   .gallery-intro {
     margin-bottom: 40px;
+  }
+
+  .gallery-intro h1 {
+    font-size: 30px;
+  }
+
+  .gallery-intro p {
+    font-size: 14.5px;
   }
 
   .stellar-photo-grid {
@@ -287,68 +198,46 @@ body {
     grid-auto-rows: 170px;
     gap: 11px;
   }
-
-  .photo-caption {
-    left: 13px;
-    bottom: 14px;
-  }
-
-  .photo-caption h3 {
-    font-size: 12px;
-  }
-
 }
 
-/* ===================================
-   MOBILE
-=================================== */
+/* MOBILE */
 
 @media (max-width: 480px) {
 
   .stellar-gallery {
-    padding: 115px 14px 60px;
+    padding: 175px 15px 55px;
   }
 
   .gallery-intro h1 {
-    font-size: 42px;
+    font-size: 30px;
   }
 
   .gallery-intro p {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  .gallery-eyebrow {
     font-size: 11px;
   }
 
   .stellar-photo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-auto-rows: 145px;
-    gap: 8px;
+    gap: 9px;
   }
 
   .stellar-photo {
-    border-radius: 4px;
+    border-radius: 6px;
   }
 
-  .photo-caption {
-    left: 9px;
-    right: 7px;
-    bottom: 10px;
-  }
-
-  .photo-caption span {
-    font-size: 7px;
-  }
-
-  .photo-caption h3 {
-    font-size: 10px;
-  }
-
-  .gallery-bottom p {
-    font-size: 17px;
+  .gallery-bottom p,
+  .gallery-bottom a {
+    font-size: 14.5px;
   }
 
   .stellar-gallery-footer {
-    padding: 22px 15px;
-    flex-direction: column;
-    text-align: center;
+    font-size: 13px;
   }
 
   .gallery-lightbox {
@@ -358,5 +247,4 @@ body {
   .gallery-lightbox img {
     max-width: 100%;
   }
-
 }
