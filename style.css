@@ -26,6 +26,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -302,6 +303,12 @@ a {
 
 .stellar-marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* Space between the marquee and Register */
+
+.stellar-marquee + #register {
+  margin-top: 40px;
 }
 
 
@@ -644,8 +651,8 @@ a {
 }
 
 .footer-note {
-  padding-left: 25px;
-  border-left: 1px solid rgba(246, 241, 235, 0.2);
+  padding-left: 0;
+  border-left: none;
 }
 
 .footer-eyebrow {
