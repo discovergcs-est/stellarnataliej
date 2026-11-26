@@ -21,14 +21,15 @@ if (navbar) {
    MOBILE NAVIGATION
 ========================= */
 
-const menuToggle = document.getElementById("menu-toggle");
-const mainNav = document.getElementById("main-nav");
-const navbar = document.querySelector(".navbar");
+// These IDs must match the HTML.
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
 if (menuToggle && mainNav && navbar) {
 
   // OPEN AND CLOSE MENU
-  menuToggle.addEventListener("click", function () {
+  menuToggle.addEventListener("click", function (event) {
+    event.stopPropagation();
 
     const isOpen = navbar.classList.toggle("active");
 
@@ -38,66 +39,39 @@ if (menuToggle && mainNav && navbar) {
       "aria-label",
       isOpen ? "Close navigation menu" : "Open navigation menu"
     );
-
   });
 
   // CLOSE MENU WHEN A LINK IS CLICKED
   mainNav.querySelectorAll("a").forEach(function (link) {
-
     link.addEventListener("click", function () {
-
       navbar.classList.remove("active");
 
       menuToggle.setAttribute("aria-expanded", "false");
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
     });
-
   });
 
   // CLOSE MENU WHEN CLICKING OUTSIDE
   document.addEventListener("click", function (event) {
-
-    if (
-      !navbar.contains(event.target)
-    ) {
-
+    if (!navbar.contains(event.target)) {
       navbar.classList.remove("active");
 
       menuToggle.setAttribute("aria-expanded", "false");
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
-
   });
 
   // CLOSE MENU WHEN SCREEN RESIZES TO DESKTOP
   window.addEventListener("resize", function () {
-
     if (window.innerWidth > 768) {
-
       navbar.classList.remove("active");
 
       menuToggle.setAttribute("aria-expanded", "false");
-
-      menuToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
-
   });
-
 }
+
 /* =========================================
    LOAD MORE PHOTOS
 ========================================= */
@@ -115,7 +89,6 @@ if (loadMoreButton) {
   });
 }
 
-
 /* =========================================
    CURRENT YEAR
 ========================================= */
@@ -125,7 +98,6 @@ const year = document.querySelector(".current-year");
 if (year) {
   year.textContent = new Date().getFullYear();
 }
-
 
 /* =========================================
    SCROLL TO TOP BUTTON
@@ -155,7 +127,6 @@ if (upBtn) {
 
   toggleUpBtn();
 }
-
 
 /* =========================================
    ACTIVE NAVIGATION LINK ON SCROLL
@@ -192,7 +163,6 @@ function activateNavLink() {
     if (scrollY >= sectionTop && scrollY < sectionBottom) {
       setActive(sectionId);
     }
-
   });
 
   // Highlight Contact at the bottom of the page
@@ -204,45 +174,36 @@ function activateNavLink() {
 window.addEventListener("scroll", activateNavLink);
 window.addEventListener("load", activateNavLink);
 
-
 /* =========================================
    VIDEO FUNCTIONALITY
 ========================================= */
 
-const videoCards = document.querySelectorAll(".video-card");
+const videos = document.querySelectorAll(".video-card video");
 
-videoCards.forEach(card => {
+videos.forEach(video => {
 
-  const video = card.querySelector("video");
-
-  if (!video) return;
-
+  // Allow mobile and desktop playback
   video.controls = true;
-  video.muted = false;
+  video.playsInline = true;
+  video.autoplay = false;
   video.loop = false;
-  video.currentTime = 0;
+  video.preload = "metadata";
 
-  card.addEventListener("click", event => {
+  video.removeAttribute("autoplay");
 
-    // Let native video controls work normally
-    if (event.target.closest("video")) return;
-
-    // Pause all other videos
-    videoCards.forEach(otherCard => {
-      const otherVideo = otherCard.querySelector("video");
-
-      if (otherVideo && otherVideo !== video) {
+  // Pause other videos when one starts playing
+  video.addEventListener("play", () => {
+    videos.forEach(otherVideo => {
+      if (otherVideo !== video) {
         otherVideo.pause();
       }
     });
-
-    // Toggle this video
-    if (video.paused) {
-      video.play().catch(() => {});
-    } else {
-      video.pause();
-    }
-
   });
+});
 
+// Pause videos when leaving the page
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    videos.forEach(video => video.pause());
+  }
 });
