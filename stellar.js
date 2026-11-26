@@ -17,62 +17,60 @@ if (navbar) {
   });
 }
 
+/* =========================
+   MOBILE NAVIGATION
+========================= */
 
-/* =========================================
-   STELLAR — MOBILE NAVIGATION
-========================================= */
-
+// These IDs must match the HTML.
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
-const navbar = document.querySelector(".navbar");
 
 if (menuToggle && mainNav && navbar) {
 
-  function closeMenu() {
-    menuToggle.classList.remove("active");
-    mainNav.classList.remove("active");
-    navbar.classList.remove("active");
-
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
-  }
-
+  // OPEN AND CLOSE MENU
   menuToggle.addEventListener("click", function (event) {
     event.stopPropagation();
 
-    const isOpen = !mainNav.classList.contains("active");
-
-    menuToggle.classList.toggle("active", isOpen);
-    mainNav.classList.toggle("active", isOpen);
-    navbar.classList.toggle("active", isOpen);
+    const isOpen = navbar.classList.toggle("active");
 
     menuToggle.setAttribute("aria-expanded", isOpen);
+
     menuToggle.setAttribute(
       "aria-label",
       isOpen ? "Close navigation menu" : "Open navigation menu"
     );
   });
 
-  // Close when a navigation link is clicked
-  mainNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenu);
+  // CLOSE MENU WHEN A LINK IS CLICKED
+  mainNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navbar.classList.remove("active");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
   });
 
-  // Close when clicking outside
+  // CLOSE MENU WHEN CLICKING OUTSIDE
   document.addEventListener("click", function (event) {
     if (!navbar.contains(event.target)) {
-      closeMenu();
+      navbar.classList.remove("active");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
   });
 
-  // Close when returning to desktop view
+  // CLOSE MENU WHEN SCREEN RESIZES TO DESKTOP
   window.addEventListener("resize", function () {
     if (window.innerWidth > 768) {
-      closeMenu();
+      navbar.classList.remove("active");
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
     }
   });
 }
-
 
 /* =========================================
    LOAD MORE PHOTOS
