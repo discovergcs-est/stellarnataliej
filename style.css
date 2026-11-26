@@ -605,60 +605,291 @@ a {
 
 
 /* =========================================
-   CONTACT
+   STELLAR — CONTACT SECTION
 ========================================= */
 
-#contact {
-  padding: 70px 30px;
+.stellar-contact {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 7%;
+  background: #fffdf9;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 85px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* LEFT CONTENT */
+
+.contact-content {
+  max-width: 490px;
 }
 
 .contact-label {
-  display: block;
+  display: inline-block;
   color: var(--burnt-orange);
   font-size: var(--font-small);
   font-weight: 600;
   letter-spacing: 2px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-#contact h2 {
-  font-family: 'Poppins', sans-serif;
-  color: var(--burnt-orange);
-  font-size: var(--font-heading);
+.contact-content h2 {
+  color: var(--dark);
+  font-size: 38px;
   font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.contact-content h2 span {
+  display: block;
+  color: var(--burnt-orange);
+}
+
+.contact-divider {
+  width: 65px;
+  height: 3px;
+  background: var(--accent);
+  margin: 22px 0;
+}
+
+.contact-content p {
+  color: var(--gray);
+  font-size: var(--font-body);
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.contact-content .contact-closing {
+  color: var(--burnt-orange);
+  font-weight: 500;
+  margin-top: 18px;
+}
+
+/* SOCIAL ICONS */
+
+.contact-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  color: white;
+  font-size: 21px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.whatsapp-link {
+  background: #279b70;
+}
+
+.instagram-link {
+  background: var(--burnt-orange);
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+}
+
+.contact-follow-text {
+  display: block;
+  margin-top: 17px;
+  color: var(--gray);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+/* RIGHT CONTACT OPTIONS */
+
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 32px;
+  background: #f5eee6;
+  border-radius: 20px;
+}
+
+.contact-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px 22px;
+  background: #fffdf9;
+  border: 1px solid rgba(198, 90, 30, 0.10);
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-option:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(30, 30, 30, 0.07);
+}
+
+.contact-option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--soft-cream);
+  color: var(--burnt-orange);
+  font-size: 23px;
+}
+
+.contact-option:first-child .contact-option-icon {
+  color: #279b70;
+}
+
+.contact-option-text span {
+  display: block;
+  color: var(--burnt-orange);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  margin-bottom: 6px;
+}
+
+.contact-option-text h3 {
+  color: var(--dark);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.contact-option-text p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.7;
   margin-bottom: 12px;
 }
 
-#contact p {
-  color: var(--gray);
-}
-
-.whatsapp-contact {
+.contact-option-text a {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 25px;
-  padding: 14px 24px;
-  border-radius: 50px;
-  background: var(--burnt-orange);
-  transition: all 0.3s ease;
-}
-
-.whatsapp-icon {
-  color: white;
-  font-size: 22px;
-}
-
-.whatsapp-contact a {
-  color: white;
-  font-size: var(--font-body);
-  font-weight: 500;
+  gap: 8px;
+  color: var(--burnt-orange);
+  font-size: 13px;
+  font-weight: 600;
   text-decoration: none;
 }
 
-.whatsapp-contact:hover {
-  background: #a84918;
-  transform: translateY(-2px);
+.contact-option-text a:hover {
+  color: #a84918;
+}
+
+/* =========================================
+   CONTACT — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .contact-layout {
+    gap: 40px;
+  }
+
+  .contact-content h2 {
+    font-size: 32px;
+  }
+
+  .contact-options {
+    padding: 20px;
+  }
+
+  .contact-option {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+}
+
+/* =========================================
+   CONTACT — MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .stellar-contact {
+    padding: 70px 25px;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .contact-content {
+    max-width: 600px;
+  }
+
+  .contact-content h2 {
+    font-size: 30px;
+  }
+
+  .contact-options {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  .contact-option {
+    padding: 20px 16px;
+  }
+}
+
+/* =========================================
+   CONTACT — SMALL PHONES
+========================================= */
+
+@media (max-width: 480px) {
+
+  .stellar-contact {
+    padding: 60px 20px;
+  }
+
+  .contact-content h2 {
+    font-size: 27px;
+  }
+
+  .contact-content p {
+    font-size: 14px;
+  }
+
+  .contact-options {
+    padding: 12px;
+    border-radius: 15px;
+  }
+
+  .contact-option {
+    gap: 13px;
+    padding: 18px 13px;
+  }
+
+  .contact-option-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .contact-option-text h3 {
+    font-size: 15px;
+  }
 }
 
 
