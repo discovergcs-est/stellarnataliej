@@ -868,10 +868,13 @@ a {
 
 @media (max-width: 480px) {
 
-   .hero-image {
-    margin-top: 45px;
-    height: 350px;
-  }
+.hero-image {
+  height: 350px;
+  width: 100%;
+  margin-top: 110px;
+  position: relative;
+  z-index: 1;
+}
    
   .stellar-contact {
     padding: 60px 20px;
