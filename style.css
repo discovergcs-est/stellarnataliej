@@ -544,7 +544,7 @@ a {
 
 .register-label {
   display: block;
-  color: #f6d6b8;
+  color: #f6f1eb;
   font-size: var(--font-small);
   font-weight: 600;
   letter-spacing: 2px;
@@ -562,6 +562,7 @@ a {
 #register p {
   margin: 8px 0;
 }
+
 
 
 /* =========================================
