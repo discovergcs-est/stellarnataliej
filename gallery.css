@@ -1,250 +1,469 @@
 
-/* ===================================
-   STELLAR GALLERY
-=================================== */
+/* ========================================
+   STELLAR GALLERY PAGE
+   Consistent with the main STELLAR website
+======================================== */
+
+:root {
+    --gallery-orange: #c65a1e;
+    --gallery-cream: #f6f1eb;
+    --gallery-dark: #1e1e1e;
+    --gallery-gray: #6f6f6f;
+    --gallery-accent: #e28a4a;
+}
+
+/* ========================================
+   GENERAL PAGE STYLING
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark);
-  background: var(--soft-cream);
+    margin: 0;
+    padding: 0;
+    background: var(--gallery-cream);
+    color: var(--gallery-dark);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
-/* MAIN GALLERY */
+a {
+    text-decoration: none;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 40px;
+    background: var(--gallery-cream);
+}
+
+.navbar .logo a {
+    color: var(--gallery-dark);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar nav a {
+    color: var(--gallery-dark);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: var(--gallery-orange);
+}
+
+/* ========================================
+   GALLERY MAIN SECTION
+======================================== */
 
 .stellar-gallery {
-  max-width: 1250px;
-  margin: 0 auto;
-  padding: 140px 45px 90px;
-  background: var(--soft-cream);
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+
+    /* Reduced top spacing */
+    padding: 105px 40px 75px;
 }
 
-/* GALLERY HEADING */
+/* ========================================
+   GALLERY INTRODUCTION
+======================================== */
 
 .gallery-intro {
-  text-align: center;
-  max-width: 650px;
-  margin: 0 auto 60px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
 }
 
 .gallery-eyebrow {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--burnt-orange);
-  margin-bottom: 12px;
+    display: block;
+    margin-bottom: 12px;
+
+    color: var(--gallery-orange);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
 }
 
 .gallery-intro h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 15px;
+    margin: 0 0 12px;
+
+    color: var(--gallery-dark);
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .gallery-intro p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--gray);
-  font-weight: 400;
+    margin: 0 auto;
+
+    color: var(--gallery-gray);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
 }
 
-/* PHOTO GRID */
+/* ========================================
+   PHOTO GALLERY
+   Natural image proportions prevent faces
+   and important parts of photos being cut.
+======================================== */
 
 .stellar-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: 190px;
-  grid-auto-flow: dense;
-  gap: 14px;
+    column-count: 3;
+    column-gap: 18px;
+    width: 100%;
 }
 
 .stellar-photo {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  min-width: 0;
-  background: #e5e5e5;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 18px;
+
+    overflow: hidden;
+    break-inside: avoid;
+    background: transparent;
+    border-radius: 3px;
 }
 
-.stellar-photo.wide {
-  grid-column: span 2;
-}
+/* Remove old wide/tall cropping behaviour */
 
+.stellar-photo.wide,
 .stellar-photo.tall {
-  grid-row: span 2;
+    grid-column: auto;
+    grid-row: auto;
 }
 
-/* IMAGES ONLY */
+/* Show the entire original photograph */
 
 .stellar-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform 0.4s ease;
 }
+
+/* Subtle hover effect */
 
 .stellar-photo:hover img {
-  transform: scale(1.04);
+    transform: scale(1.025);
 }
 
-/* GALLERY BOTTOM */
+/* Hide all photo descriptions and overlays */
 
-.gallery-bottom {
-  text-align: center;
-  padding: 60px 15px 0;
+.photo-caption {
+    display: none !important;
 }
 
-.gallery-bottom p {
-  font-size: 15px;
-  color: var(--gray);
-}
-
-.gallery-bottom a {
-  display: inline-block;
-  margin-top: 15px;
-  color: var(--burnt-orange);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* FOOTER */
-
-.stellar-gallery-footer {
-  background: var(--dark);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 13px;
-}
-
-.stellar-gallery-footer a {
-  display: inline-block;
-  margin-top: 8px;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-/* LIGHTBOX */
+/* ========================================
+   LIGHTBOX
+======================================== */
 
 .gallery-lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(15, 15, 15, 0.96);
-  align-items: center;
-  justify-content: center;
-  padding: 55px 65px;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.94);
 }
 
-.gallery-lightbox.open {
-  display: flex;
+.gallery-lightbox.active {
+    display: flex;
 }
 
 .gallery-lightbox img {
-  max-width: 90%;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 5px;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
 }
 
 .gallery-lightbox button {
-  position: absolute;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 32px;
+    position: absolute;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.gallery-lightbox button:hover {
+    color: var(--gallery-accent);
 }
 
 .lightbox-close {
-  top: 20px;
-  right: 30px;
+    top: 25px;
+    right: 35px;
+    font-size: 38px;
 }
 
 .lightbox-prev {
-  left: 20px;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
 }
 
 .lightbox-next {
-  right: 20px;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
 }
 
-/* TABLET */
+#lightboxCaption {
+    display: none;
+}
+
+/* ========================================
+   BOTTOM GALLERY SECTION
+======================================== */
+
+.gallery-bottom {
+    margin-top: 55px;
+    text-align: center;
+}
+
+.gallery-bottom p {
+    color: var(--gallery-gray);
+    font-size: 15px;
+}
+
+.gallery-bottom a {
+    display: inline-block;
+    margin-top: 8px;
+
+    color: var(--gallery-orange);
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+.gallery-bottom a:hover {
+    color: var(--gallery-dark);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.stellar-gallery-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 22px 40px;
+    background: var(--gallery-dark);
+    color: white;
+}
+
+.stellar-gallery-footer p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.stellar-gallery-footer a {
+    color: var(--gallery-accent);
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.stellar-gallery-footer a:hover {
+    color: white;
+}
+
+/* ========================================
+   TABLET RESPONSIVENESS
+======================================== */
+
+@media (max-width: 1024px) {
+
+    .stellar-gallery {
+        padding: 105px 28px 65px;
+    }
+
+    .stellar-photo-grid {
+        column-count: 2;
+        column-gap: 15px;
+    }
+
+    .stellar-photo {
+        margin-bottom: 15px;
+    }
+
+    .gallery-intro h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+======================================== */
 
 @media (max-width: 768px) {
 
-  .stellar-gallery {
-    padding: 145px 25px 70px;
-  }
+    .navbar {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 15px;
+    }
 
-  .gallery-intro {
-    margin-bottom: 40px;
-  }
+    .navbar .logo a {
+        font-size: 21px;
+    }
 
-  .gallery-intro h1 {
-    font-size: 30px;
-  }
+    .navbar nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 17px;
+    }
 
-  .gallery-intro p {
-    font-size: 14.5px;
-  }
+    .navbar nav a {
+        font-size: 12px;
+    }
 
-  .stellar-photo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 170px;
-    gap: 11px;
-  }
+    .stellar-gallery {
+        padding: 140px 18px 55px;
+    }
+
+    .gallery-intro {
+        margin-bottom: 30px;
+    }
+
+    .gallery-intro h1 {
+        font-size: 30px;
+    }
+
+    .gallery-intro p {
+        font-size: 14px;
+    }
+
+    .gallery-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .stellar-photo-grid {
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    .stellar-photo {
+        margin-bottom: 10px;
+    }
+
+    .gallery-bottom {
+        margin-top: 35px;
+    }
+
+    .stellar-gallery-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
 }
 
-/* MOBILE */
+/* ========================================
+   SMALL MOBILE SCREENS
+======================================== */
 
 @media (max-width: 480px) {
 
-  .stellar-gallery {
-    padding: 175px 15px 55px;
-  }
+    .navbar {
+        gap: 10px;
+        padding: 10px 12px;
+    }
 
-  .gallery-intro h1 {
-    font-size: 30px;
-  }
+    .navbar nav {
+        gap: 8px 13px;
+    }
 
-  .gallery-intro p {
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
+    .navbar nav a {
+        font-size: 11px;
+    }
 
-  .gallery-eyebrow {
-    font-size: 11px;
-  }
+    .stellar-gallery {
+        padding: 130px 12px 45px;
+    }
 
-  .stellar-photo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 145px;
-    gap: 9px;
-  }
+    .gallery-intro h1 {
+        font-size: 27px;
+    }
 
-  .stellar-photo {
-    border-radius: 6px;
-  }
+    .gallery-intro p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
 
-  .gallery-bottom p,
-  .gallery-bottom a {
-    font-size: 14.5px;
-  }
+    .stellar-photo-grid {
+        column-count: 2;
+        column-gap: 8px;
+    }
 
-  .stellar-gallery-footer {
-    font-size: 13px;
-  }
+    .stellar-photo {
+        margin-bottom: 8px;
+    }
 
-  .gallery-lightbox {
-    padding: 50px 35px;
-  }
+    .gallery-lightbox {
+        padding: 15px;
+    }
 
-  .gallery-lightbox img {
-    max-width: 100%;
-  }
+    .gallery-lightbox img {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+
+    .lightbox-prev {
+        left: 8px;
+    }
+
+    .lightbox-next {
+        right: 8px;
+    }
 }
