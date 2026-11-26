@@ -41,44 +41,39 @@ a {
    NAVIGATION
 ======================================== */
 
+
+/* ===== NAV ===== */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 40px;
-    background: var(--gallery-cream);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--soft-cream);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  z-index: 1000;
 }
 
-.navbar .logo a {
-    color: var(--gallery-dark);
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 2px;
+.navbar a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 500;
 }
 
-.navbar nav {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+.navbar a:hover {
+  color: var(--burnt-orange);
 }
 
-.navbar nav a {
-    color: var(--gallery-dark);
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.navbar a.active {
+  color: var(--burnt-orange);
+  font-weight: 600;
 }
 
-.navbar nav a:hover,
-.navbar nav a.active {
-    color: var(--gallery-orange);
+.logo {
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--burnt-orange);
 }
 
 /* ========================================
