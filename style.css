@@ -868,6 +868,11 @@ a {
 
 @media (max-width: 480px) {
 
+   .hero-image {
+    margin-top: 45px;
+    height: 350px;
+  }
+   
   .stellar-contact {
     padding: 60px 20px;
   }
@@ -899,6 +904,7 @@ a {
   .contact-option-text h3 {
     font-size: 15px;
   }
+   
 }
 
 
@@ -1232,23 +1238,23 @@ a {
     padding: 65px 25px;
   }
 
-  .hero-layout {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 
-  .hero-image {
-    height: 430px;
-    max-width: 500px;
-    width: 100%;
-    margin: 35px auto 0;
-  }
+.hero-image {
+  margin: 55px auto 0;
+  width: 100%;
+  max-width: 500px;
+  height: 430px;
+}
 
-  .hero-content {
-    max-width: 600px;
-    margin: auto;
-  }
-
+.hero-content {
+  width: 100%;
+  margin: 0 auto;
+}
 
   /* VIDEOS */
 
