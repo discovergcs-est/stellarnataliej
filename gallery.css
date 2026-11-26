@@ -319,6 +319,41 @@ a {
 }
 
 /* =========================================
+   SCROLL TO TOP
+========================================= */
+
+.up {
+  position: fixed;
+  right: 20px;
+  bottom: 15px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--burnt-orange);
+  color: white;
+  font-size: var(--font-small);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 25px rgba(198, 90, 30, 0.25);
+  transition: all 0.3s ease;
+}
+
+.up.show-up-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.up:hover {
+  transform: translateY(-3px);
+  background: #a84918;
+}
+
+/* =========================================
    FOOTER
 ========================================= */
 
