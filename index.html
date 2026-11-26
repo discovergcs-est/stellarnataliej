@@ -20,9 +20,25 @@
 
 <!-- ================= NAVIGATION ================= -->
 <header class="navbar">
-  <a href="index.html#home" class="logo">STELLAR</a>
 
-  <nav>
+  <div class="nav-left">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <a href="index.html#home" class="logo">STELLAR</a>
+  </div>
+
+  <nav id="mainNav">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#videos">Moments</a>
@@ -30,6 +46,7 @@
     <a href="#register">Register</a>
     <a href="#contact">Contact</a>
   </nav>
+
 </header>
 
 
@@ -175,7 +192,7 @@
     <div class="video-grid">
 
       <div class="video-card">
-        <video preload="metadata">
+        <video preload="metadata" controls>
           <source src="Stellar Launch (1).mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
@@ -183,7 +200,7 @@
       </div>
 
       <div class="video-card">
-        <video preload="metadata">
+        <video preload="metadata" controls>
           <source src="Stellar Weekend Rendezvous (1).mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
