@@ -1319,7 +1319,7 @@ a {
 
 
 /* =========================================
-   SMALL PHONES
+   SMALL PHONES — 480px
 ========================================= */
 
 @media (max-width: 480px) {
@@ -1364,6 +1364,7 @@ a {
   }
 
   .about-grid {
+    grid-template-columns: 1fr;
     gap: 35px;
   }
 
@@ -1385,6 +1386,10 @@ a {
     filter: blur(18px);
   }
 
+  .about-content {
+    text-align: center;
+  }
+
   .about-content h2,
   .hero-content h1 {
     font-size: var(--font-subheading);
@@ -1392,6 +1397,10 @@ a {
 
   .about-content p {
     line-height: 1.8;
+  }
+
+  .about-line {
+    margin: 22px auto;
   }
 
   /* MARQUEE */
@@ -1412,10 +1421,13 @@ a {
   /* ABOUT VISION */
 
   .hero {
+    min-height: auto;
     padding: 45px 20px;
   }
 
   .hero-layout {
+    display: flex;
+    flex-direction: column;
     gap: 25px;
   }
 
@@ -1424,6 +1436,11 @@ a {
     max-width: 100%;
     height: 350px;
     margin: 20px auto 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    margin: 0 auto;
   }
 
   .hero-content p {
@@ -1441,10 +1458,12 @@ a {
   }
 
   .video-grid {
+    grid-template-columns: 1fr;
     gap: 22px;
   }
 
   .video-card {
+    width: 100%;
     border-radius: 12px;
   }
 
@@ -1534,94 +1553,7 @@ a {
     text-align: center;
     gap: 8px;
   }
-}
 
-
-  /* GENERAL SECTIONS */
-
-  .section {
-    padding: 55px 20px;
-  }
-
-
-  /* REGISTER */
-
-  #register {
-    margin-top: 25px;
-    margin-bottom: 25px;
-    padding: 55px 20px 50px;
-  }
-
-  #register h2 {
-    font-size: var(--font-heading);
-  }
-
-  #register p {
-    font-size: 14px;
-  }
-
-
-  /* CONTACT */
-
-  .stellar-contact {
-    padding: 60px 20px;
-  }
-
-  .contact-content h2 {
-    font-size: 27px;
-  }
-
-  .contact-content p {
-    font-size: 14px;
-  }
-
-  .contact-options {
-    padding: 12px;
-    border-radius: 15px;
-  }
-
-  .contact-option {
-    gap: 13px;
-    padding: 18px 13px;
-  }
-
-  .contact-option-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 20px;
-  }
-
-  .contact-option-text h3 {
-    font-size: 15px;
-  }
-
-
-  /* FOOTER */
-
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 20px;
-  }
-
-  .footer-brand,
-  .footer-note {
-    grid-column: 1 / -1;
-  }
-
-  .footer-note {
-    padding-left: 0;
-    border-left: none;
-  }
-
-  .footer-note h2 {
-    font-size: var(--font-subheading);
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
 }
 
 
