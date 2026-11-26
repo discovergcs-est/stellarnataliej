@@ -908,15 +908,15 @@ a {
 }
 
 
+
 /* =========================================
    FOOTER
 ========================================= */
 
 .stellar-footer {
   padding: 65px 7% 25px;
-  background: var(--soft-cream);
-  color: var(--dark);
-  border-top: 1px solid rgba(198, 90, 30, 0.12);
+  background: var(--dark);
+  color: var(--soft-cream);
 }
 
 .footer-container {
@@ -936,7 +936,7 @@ a {
 
 .footer-logo {
   display: inline-block;
-  color: var(--burnt-orange);
+  color: var(--accent);
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -945,7 +945,7 @@ a {
 }
 
 .footer-brand p {
-  color: var(--gray);
+  color: #c4bdb5;
 }
 
 .footer-links {
@@ -956,20 +956,20 @@ a {
 }
 
 .footer-links h3 {
-  color: var(--burnt-orange);
+  color: var(--accent);
   font-size: var(--font-body);
   font-weight: 600;
   margin-bottom: 8px;
 }
 
 .footer-links a {
-  color: var(--gray);
+  color: #c4bdb5;
   font-size: var(--font-body);
   text-decoration: none;
 }
 
 .footer-links a:hover {
-  color: var(--burnt-orange);
+  color: white;
 }
 
 .footer-note {
@@ -978,7 +978,7 @@ a {
 }
 
 .footer-eyebrow {
-  color: var(--burnt-orange);
+  color: var(--accent);
   font-size: var(--font-small);
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -1003,13 +1003,14 @@ a {
   max-width: var(--content-width);
   margin: auto;
   padding-top: 22px;
-  border-top: 1px solid rgba(198, 90, 30, 0.18);
-  color: var(--gray);
+  border-top: 1px solid rgba(246, 241, 235, 0.2);
+  color: #aaa19a;
 }
 
 .footer-bottom p {
   font-size: var(--font-small);
 }
+
 
 
 /* =========================================
