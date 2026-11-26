@@ -73,18 +73,13 @@ a {
   position: relative;
 }
 
-.light {
-  background: var(--soft-cream);
-}
+/* Keep all main page sections cream */
 
-.dark {
-  background: #111;
-  color: white;
-}
-
+.light,
+.dark,
 .accent {
-  background: var(--burnt-orange);
-  color: white;
+  background: var(--soft-cream);
+  color: var(--dark);
 }
 
 
@@ -105,6 +100,7 @@ a {
   padding: 14px 5%;
   z-index: 1000;
   box-shadow: 0 2px 12px rgba(30, 30, 30, 0.05);
+  transition: box-shadow 0.3s ease;
 }
 
 .nav-left {
@@ -143,20 +139,29 @@ a {
   color: var(--burnt-orange);
 }
 
+/* Hamburger button */
+
 .menu-toggle {
   display: none;
-  background: transparent;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  padding: 5px;
   border: none;
-  padding: 7px;
+  background: transparent;
   cursor: pointer;
   z-index: 1002;
 }
 
 .menu-toggle span {
   display: block;
-  width: 27px;
+  width: 25px;
   height: 2.5px;
-  margin: 6px 0;
+  margin: 0;
   background: var(--burnt-orange);
   border-radius: 5px;
   transition: transform 0.3s ease, opacity 0.2s ease;
@@ -211,11 +216,7 @@ a {
   display: flex;
   align-items: center;
   padding: 130px 40px 90px;
-  background: linear-gradient(
-    135deg,
-    #fdf8f3 0%,
-    #f3e8dd 100%
-  );
+  background: var(--soft-cream);
 }
 
 .about-grid {
@@ -355,8 +356,6 @@ a {
 .stellar-marquee:hover .marquee-track {
   animation-play-state: paused;
 }
-
-/* Spacing between Register and second marquee */
 
 .marquee-secondary {
   margin-top: 0;
@@ -520,34 +519,40 @@ a {
 
 .video-card {
   overflow: hidden;
-  background: #111;
+  background: var(--soft-cream);
   border-radius: 16px;
-  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
 }
 
 .video-card video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  background: #111;
 }
 
 .video-card p {
   padding: 13px;
-  color: white;
+  color: var(--dark);
   font-weight: 600;
   text-align: center;
 }
 
+/* Make native video controls easier to use on touchscreens */
+
+.video-card video::-webkit-media-controls {
+  display: flex !important;
+}
+
 
 /* =========================================
-   REGISTER — SOFT CREAM
+   REGISTER
 ========================================= */
 
 #register {
@@ -612,7 +617,7 @@ a {
   position: relative;
   overflow: hidden;
   padding: 100px 7%;
-  background: #fffdf9;
+  background: var(--soft-cream);
 }
 
 .contact-layout {
@@ -722,7 +727,8 @@ a {
   flex-direction: column;
   gap: 22px;
   padding: 32px;
-  background: #f5eee6;
+  background: var(--soft-cream);
+  border: 1px solid rgba(198, 90, 30, 0.12);
   border-radius: 20px;
 }
 
@@ -731,8 +737,8 @@ a {
   align-items: flex-start;
   gap: 20px;
   padding: 25px 22px;
-  background: #fffdf9;
-  border: 1px solid rgba(198, 90, 30, 0.10);
+  background: var(--soft-cream);
+  border: 1px solid rgba(198, 90, 30, 0.14);
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -750,7 +756,7 @@ a {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--soft-cream);
+  background: rgba(198, 90, 30, 0.08);
   color: var(--burnt-orange);
   font-size: 23px;
 }
@@ -796,6 +802,7 @@ a {
   color: #a84918;
 }
 
+
 /* =========================================
    CONTACT — TABLET
 ========================================= */
@@ -819,6 +826,7 @@ a {
     gap: 14px;
   }
 }
+
 
 /* =========================================
    CONTACT — MOBILE
@@ -852,6 +860,7 @@ a {
     padding: 20px 16px;
   }
 }
+
 
 /* =========================================
    CONTACT — SMALL PHONES
@@ -899,8 +908,9 @@ a {
 
 .stellar-footer {
   padding: 65px 7% 25px;
-  background: var(--dark);
-  color: var(--soft-cream);
+  background: var(--soft-cream);
+  color: var(--dark);
+  border-top: 1px solid rgba(198, 90, 30, 0.12);
 }
 
 .footer-container {
@@ -920,7 +930,7 @@ a {
 
 .footer-logo {
   display: inline-block;
-  color: var(--accent);
+  color: var(--burnt-orange);
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -929,7 +939,7 @@ a {
 }
 
 .footer-brand p {
-  color: #c4bdb5;
+  color: var(--gray);
 }
 
 .footer-links {
@@ -940,20 +950,20 @@ a {
 }
 
 .footer-links h3 {
-  color: var(--accent);
+  color: var(--burnt-orange);
   font-size: var(--font-body);
   font-weight: 600;
   margin-bottom: 8px;
 }
 
 .footer-links a {
-  color: #c4bdb5;
+  color: var(--gray);
   font-size: var(--font-body);
   text-decoration: none;
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--burnt-orange);
 }
 
 .footer-note {
@@ -962,7 +972,7 @@ a {
 }
 
 .footer-eyebrow {
-  color: var(--accent);
+  color: var(--burnt-orange);
   font-size: var(--font-small);
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -987,8 +997,8 @@ a {
   max-width: var(--content-width);
   margin: auto;
   padding-top: 22px;
-  border-top: 1px solid rgba(246, 241, 235, 0.2);
-  color: #aaa19a;
+  border-top: 1px solid rgba(198, 90, 30, 0.18);
+  color: var(--gray);
 }
 
 .footer-bottom p {
@@ -1029,48 +1039,6 @@ a {
 .up:hover {
   transform: translateY(-3px);
   background: #a84918;
-}
-
-
-/* =====================================================
-   HAMBURGER BUTTON
-===================================================== */
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    gap: 5px;
-    width: 34px;
-    height: 34px;
-    padding: 5px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    margin: 0;
-    border-radius: 2px;
-    background: var(--gallery-orange);
-    transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
 }
 
 
@@ -1142,6 +1110,8 @@ a {
     --font-display: 38px;
   }
 
+  /* MOBILE NAVIGATION */
+
   .navbar {
     flex-direction: column;
     align-items: stretch;
@@ -1159,7 +1129,7 @@ a {
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
     flex-shrink: 0;
     margin-left: -7px;
   }
@@ -1198,8 +1168,10 @@ a {
     background: rgba(198, 90, 30, 0.07);
   }
 
+  /* Hamburger transforms into an X */
+
   .navbar.active .menu-toggle span:nth-child(1) {
-    transform: translateY(8.5px) rotate(45deg);
+    transform: translateY(7.5px) rotate(45deg);
   }
 
   .navbar.active .menu-toggle span:nth-child(2) {
@@ -1207,10 +1179,11 @@ a {
   }
 
   .navbar.active .menu-toggle span:nth-child(3) {
-    transform: translateY(-8.5px) rotate(-45deg);
+    transform: translateY(-7.5px) rotate(-45deg);
   }
 
-  /* Home section: more breathing room */
+
+  /* HOME SECTION */
 
   .about-signature {
     min-height: auto;
@@ -1251,6 +1224,9 @@ a {
     margin: 0 auto 18px;
   }
 
+
+  /* ABOUT VISION IMAGE */
+
   .hero {
     min-height: auto;
     padding: 65px 25px;
@@ -1264,7 +1240,8 @@ a {
   .hero-image {
     height: 430px;
     max-width: 500px;
-    margin: auto;
+    width: 100%;
+    margin: 35px auto 0;
   }
 
   .hero-content {
@@ -1272,15 +1249,30 @@ a {
     margin: auto;
   }
 
+
+  /* VIDEOS */
+
   .video-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 
   .video-section {
     padding: 60px 25px;
   }
 
-  /* Register mobile spacing */
+  .video-card {
+    width: 100%;
+  }
+
+  .video-card video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+
+
+  /* REGISTER */
 
   #register {
     margin-top: 25px;
@@ -1291,6 +1283,9 @@ a {
   #register h2 {
     font-size: 28px;
   }
+
+
+  /* FOOTER */
 
   .footer-container {
     grid-template-columns: 1fr 1fr;
@@ -1339,6 +1334,9 @@ a {
     font-size: 14px;
   }
 
+
+  /* HOME */
+
   .about-signature {
     padding: 145px 20px 65px;
   }
@@ -1372,6 +1370,9 @@ a {
     filter: blur(18px);
   }
 
+
+  /* MARQUEE */
+
   .stellar-marquee {
     padding: 14px 0;
   }
@@ -1385,12 +1386,20 @@ a {
     letter-spacing: 1.5px;
   }
 
+
+  /* ABOUT VISION */
+
   .hero {
     padding: 55px 20px;
   }
 
+  .hero-layout {
+    gap: 30px;
+  }
+
   .hero-image {
     height: 350px;
+    margin-top: 35px;
   }
 
   .hero-content p {
@@ -1401,9 +1410,34 @@ a {
     font-size: var(--font-body);
   }
 
+
+  /* VIDEOS */
+
+  .video-section {
+    padding: 55px 20px;
+  }
+
+  .video-grid {
+    gap: 22px;
+  }
+
+  .video-card {
+    border-radius: 12px;
+  }
+
+  .video-card p {
+    padding: 11px;
+  }
+
+
+  /* GENERAL SECTIONS */
+
   .section {
     padding: 55px 20px;
   }
+
+
+  /* REGISTER */
 
   #register {
     margin-top: 25px;
@@ -1419,14 +1453,43 @@ a {
     font-size: 14px;
   }
 
-  #contact {
+
+  /* CONTACT */
+
+  .stellar-contact {
     padding: 60px 20px;
   }
 
-  .whatsapp-contact {
-    gap: 10px;
-    padding: 12px 17px;
+  .contact-content h2 {
+    font-size: 27px;
   }
+
+  .contact-content p {
+    font-size: 14px;
+  }
+
+  .contact-options {
+    padding: 12px;
+    border-radius: 15px;
+  }
+
+  .contact-option {
+    gap: 13px;
+    padding: 18px 13px;
+  }
+
+  .contact-option-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .contact-option-text h3 {
+    font-size: 15px;
+  }
+
+
+  /* FOOTER */
 
   .footer-container {
     grid-template-columns: 1fr 1fr;
@@ -1471,7 +1534,7 @@ a {
   }
 
   .video-card video {
-    background: black;
+    background: #111;
   }
 }
 
