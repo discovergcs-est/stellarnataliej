@@ -215,7 +215,7 @@ a {
   height: auto;
   display: flex;
   align-items: center;
-  padding: 130px 40px 90px;
+  padding: 100px 40px 90px;
   background: var(--soft-cream);
 }
 
@@ -492,7 +492,7 @@ a {
 ========================================= */
 
 .video-section {
-  padding: 70px 40px;
+  padding: 40px 40px 70px;
   background: var(--soft-cream);
 }
 
@@ -556,9 +556,9 @@ a {
 ========================================= */
 
 #register {
-  margin-top: 30px;
-  margin-bottom: 35px;
-  padding: 70px 30px 65px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 40px 30px;
   text-align: center;
   background: var(--soft-cream);
   color: var(--dark);
@@ -1134,7 +1134,7 @@ a {
 
   .about-signature {
     min-height: auto;
-    padding: 135px 25px 75px;
+    padding: 95px 25px 75px;
   }
 
   .about-grid {
@@ -1206,7 +1206,7 @@ a {
   }
 
   .video-section {
-    padding: 60px 25px;
+    padding: 35px 25px 60px;
   }
 
   .video-card {
@@ -1223,9 +1223,9 @@ a {
   /* REGISTER */
 
   #register {
-    margin-top: 25px;
-    margin-bottom: 30px;
-    padding: 60px 25px 55px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 35px 25px;
   }
 
   #register h2 {
@@ -1319,7 +1319,7 @@ a {
 
   .about-signature {
     min-height: auto;
-    padding: 110px 20px 55px;
+    padding: 85px 20px 55px;
   }
 
   .about-grid {
@@ -1399,7 +1399,7 @@ a {
   /* VIDEOS */
 
   .video-section {
-    padding: 55px 20px;
+    padding: 30px 20px 55px;
   }
 
   .video-grid {
@@ -1425,9 +1425,9 @@ a {
   /* REGISTER */
 
   #register {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 50px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 30px 20px;
   }
 
   #register h2 {
