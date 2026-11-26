@@ -10,9 +10,12 @@
   --gray: #6f6f6f;
   --accent: #e28a4a;
 
+  /* Softer logo colour */
+  --logo-color: #b96a40;
+
   --font-body: 16px;
   --font-small: 14px;
-  --font-nav: 16px;
+  --font-nav: 15px;
   --font-subheading: 24px;
   --font-heading: 36px;
   --font-display: 48px;
@@ -109,23 +112,32 @@ button {
   gap: 18px;
 }
 
+/* Softer STELLAR branding */
+
 .logo {
-  color: var(--burnt-orange);
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  color: var(--logo-color);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
 }
+
+.logo:hover {
+  color: var(--burnt-orange);
+}
+
+/* Navigation links closer together */
 
 .navbar nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 19px;
 }
 
 .navbar nav a {
   color: var(--dark);
   font-size: var(--font-nav);
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.3s ease;
 }
 
@@ -133,6 +145,8 @@ button {
 .navbar nav a.active {
   color: var(--burnt-orange);
 }
+
+/* Hamburger button */
 
 .menu-toggle {
   display: none;
@@ -199,7 +213,7 @@ button {
   right: 10%;
   bottom: -18px;
   height: 35px;
-  background: rgba(198, 90, 30, 0.25);
+  background: rgba(198, 90, 30, 0.20);
   filter: blur(22px);
   border-radius: 50%;
   z-index: 0;
@@ -409,12 +423,12 @@ button {
 }
 
 /* =========================================
-   REGISTER SECTION
+   REGISTER SECTION — CREAM THEME
 ========================================= */
 
 #register {
   margin-top: 30px;
-  padding: 70px 30px;
+  padding: 85px 8%;
   text-align: center;
   background: var(--soft-cream);
   color: var(--dark);
@@ -425,8 +439,8 @@ button {
   color: var(--burnt-orange);
   font-size: var(--font-small);
   font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 14px;
+  letter-spacing: 2.5px;
+  margin-bottom: 16px;
 }
 
 #register h2 {
@@ -435,7 +449,8 @@ button {
   font-size: var(--font-heading);
   line-height: 1.4;
   font-weight: 600;
-  margin-bottom: 18px;
+  max-width: 750px;
+  margin: 0 auto 20px;
 }
 
 #register p {
@@ -446,21 +461,22 @@ button {
 
 #register .btn-dark {
   display: inline-block;
-  margin-top: 25px;
-  padding: 13px 28px;
+  margin-top: 28px;
+  padding: 13px 30px;
   background: var(--burnt-orange);
   color: white;
-  border: none;
+  border: 1px solid var(--burnt-orange);
   border-radius: 30px;
   font-family: 'Poppins', sans-serif;
   font-size: var(--font-body);
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition: all 0.3s ease;
 }
 
 #register .btn-dark:hover {
-  background: #a84918;
+  background: transparent;
+  color: var(--burnt-orange);
   transform: translateY(-2px);
 }
 
@@ -631,7 +647,8 @@ footer a:hover {
   }
 
   .logo {
-    font-size: 22px;
+    font-size: 21px;
+    letter-spacing: 1.8px;
   }
 
   .menu-toggle {
@@ -701,8 +718,6 @@ footer a:hover {
     gap: 38px;
   }
 
-  /* Image appears before text */
-
   .about-signature .signature-image,
   .about-signature .about-image {
     order: -1;
@@ -729,8 +744,6 @@ footer a:hover {
     z-index: 1;
     box-shadow: 0 12px 28px rgba(30, 30, 30, 0.10);
   }
-
-  /* A soft, elegant blurred glow beneath the image */
 
   .about-signature .signature-image::after,
   .about-signature .about-image::after {
@@ -797,8 +810,8 @@ footer a:hover {
   }
 
   #register {
-    padding: 60px 25px;
-    margin-top: 30px;
+    padding: 65px 7%;
+    margin-top: 25px;
   }
 
   #register h2 {
@@ -840,7 +853,7 @@ footer a:hover {
 
   .logo {
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
   }
 
   .about-signature {
@@ -919,7 +932,7 @@ footer a:hover {
 
   #register {
     padding: 55px 20px;
-    margin-top: 25px;
+    margin-top: 20px;
   }
 
   #register h2 {
@@ -932,7 +945,7 @@ footer a:hover {
 
   #register .btn-dark {
     font-size: 14px;
-    padding: 12px 24px;
+    padding: 12px 26px;
   }
 
   .gallery-section {
