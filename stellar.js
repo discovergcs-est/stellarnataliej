@@ -1,108 +1,49 @@
-// NAV SHADOW ON SCROLL 
-const nav = document.querySelector('.navbar');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    nav.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-  } else {
-    nav.style.boxShadow = 'none';
-  }
-});
+/* =========================================
+   STELLAR — NAVBAR SCROLL EFFECT
+========================================= */
 
-// VIDEO FUNCTIONALITY 
-const videoCards = document.querySelectorAll('.video-card');
+const navbar = document.querySelector(".navbar");
 
-  videoCards.forEach(card => {
-    const video = card.querySelector('video');
-    video.controls = true;  // show YouTube-like controls
-    video.muted = false;    // allow sound
-    video.loop = false;
-    video.currentTime = 0;  // show first frame
-
-    card.addEventListener('click', () => {
-      // Pause all other videos
-      videoCards.forEach(c => {
-        const v = c.querySelector('video');
-        if (v !== video) v.pause();
-      });
-
-      // Toggle play/pause on this video
-      if (video.paused) video.play();
-      else video.pause();
-    });
-  });
-
- // Scroll to Top Button
-    const upBtn = document.querySelector('.up');
-
-    function toggleUpBtn() {
-      if (window.scrollY > 200) {
-        upBtn.classList.add('show-up-btn');
-      } else {
-        upBtn.classList.remove('show-up-btn');
-      }
-    }
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
-    window.addEventListener('scroll', toggleUpBtn);
-    upBtn.addEventListener('click', scrollToTop);
-
-//NAV BAR
- 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".navbar nav a");
-
-function activateNavLink() {
-  let scrollY = window.scrollY;
-  let pageBottom = scrollY + window.innerHeight;
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 200;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute("id");
-
-    // Normal section detection
-    if (
-      scrollY >= sectionTop &&
-      scrollY < sectionTop + sectionHeight
-    ) {
-      setActive(sectionId);
-    }
-
-    // Force last section (CONTACT) when at page bottom
-    if (pageBottom >= document.body.scrollHeight - 5) {
-      setActive("contact");
+if (navbar) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+      navbar.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.08)";
+    } else {
+      navbar.classList.remove("scrolled");
+      navbar.style.boxShadow = "none";
     }
   });
 }
 
-function setActive(id) {
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${id}`) {
-      link.classList.add("active");
-    }
-  });
 
-  
 /* =========================================
-   STELLAR MOBILE NAVIGATION
+   MOBILE NAVIGATION
 ========================================= */
 
-const menuToggle = document.getElementById("menuToggle");
-const navbar = document.querySelector(".navbar");
-const navLinks = document.querySelectorAll("#mainNav a");
+const menuToggle = document.getElementById("menu-toggle");
+const mainNav = document.getElementById("main-nav");
 
-if (menuToggle && navbar) {
+if (menuToggle && mainNav) {
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navbar.classList.toggle("active");
+  function closeMenu() {
+    menuToggle.classList.remove("active");
+    mainNav.classList.remove("active");
+    navbar?.classList.remove("active");
+
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation menu");
+  }
+
+  menuToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const isOpen = !mainNav.classList.contains("active");
+
+    menuToggle.classList.toggle("active", isOpen);
+    mainNav.classList.toggle("active", isOpen);
+    navbar?.classList.toggle("active", isOpen);
 
     menuToggle.setAttribute("aria-expanded", isOpen);
     menuToggle.setAttribute(
@@ -111,32 +52,182 @@ if (menuToggle && navbar) {
     );
   });
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
-    });
+  // Close when a navigation link is clicked
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
   });
 
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
+  // Close when clicking outside
+  document.addEventListener("click", event => {
+    if (
+      !menuToggle.contains(event.target) &&
+      !mainNav.contains(event.target)
+    ) {
+      closeMenu();
     }
   });
 
+  // Close with Escape
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  // Reset navigation when returning to desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
-      navbar.classList.remove("active");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      closeMenu();
     }
   });
 }
 
+
+/* =========================================
+   LOAD MORE PHOTOS
+========================================= */
+
+const loadMoreButton = document.querySelector("#loadMore");
+const extraPhotos = document.querySelectorAll(".extra-photo");
+
+if (loadMoreButton) {
+  loadMoreButton.addEventListener("click", () => {
+    extraPhotos.forEach(photo => {
+      photo.style.display = "block";
+    });
+
+    loadMoreButton.style.display = "none";
+  });
+}
+
+
+/* =========================================
+   CURRENT YEAR
+========================================= */
+
+const year = document.querySelector(".current-year");
+
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+
+/* =========================================
+   SCROLL TO TOP BUTTON
+========================================= */
+
+const upBtn = document.querySelector(".up");
+
+if (upBtn) {
+
+  function toggleUpBtn() {
+    if (window.scrollY > 200) {
+      upBtn.classList.add("show-up-btn");
+    } else {
+      upBtn.classList.remove("show-up-btn");
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+  window.addEventListener("scroll", toggleUpBtn);
+  upBtn.addEventListener("click", scrollToTop);
+
+  toggleUpBtn();
+}
+
+
+/* =========================================
+   ACTIVE NAVIGATION LINK ON SCROLL
+========================================= */
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".navbar nav a");
+
+function setActive(id) {
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    const href = link.getAttribute("href");
+
+    if (href === `#${id}`) {
+      link.classList.add("active");
+    }
+  });
+}
+
+function activateNavLink() {
+
+  if (!sections.length) return;
+
+  const scrollY = window.scrollY;
+  const pageBottom = scrollY + window.innerHeight;
+
+  sections.forEach(section => {
+
+    const sectionTop = section.offsetTop - 200;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    const sectionId = section.getAttribute("id");
+
+    if (scrollY >= sectionTop && scrollY < sectionBottom) {
+      setActive(sectionId);
+    }
+
+  });
+
+  // Highlight Contact at the bottom of the page
+  if (pageBottom >= document.documentElement.scrollHeight - 5) {
+    setActive("contact");
+  }
 }
 
 window.addEventListener("scroll", activateNavLink);
+window.addEventListener("load", activateNavLink);
 
+
+/* =========================================
+   VIDEO FUNCTIONALITY
+========================================= */
+
+const videoCards = document.querySelectorAll(".video-card");
+
+videoCards.forEach(card => {
+
+  const video = card.querySelector("video");
+
+  if (!video) return;
+
+  video.controls = true;
+  video.muted = false;
+  video.loop = false;
+  video.currentTime = 0;
+
+  card.addEventListener("click", event => {
+
+    // Let native video controls work normally
+    if (event.target.closest("video")) return;
+
+    // Pause all other videos
+    videoCards.forEach(otherCard => {
+      const otherVideo = otherCard.querySelector("video");
+
+      if (otherVideo && otherVideo !== video) {
+        otherVideo.pause();
+      }
+    });
+
+    // Toggle this video
+    if (video.paused) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+
+  });
+
+});
