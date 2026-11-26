@@ -1,9 +1,16 @@
+
+/* =========================================
+   STELLAR WEBSITE STYLESHEET
+========================================= */
+
 :root {
   --burnt-orange: #c65a1e;
   --soft-cream: #f6f1eb;
   --dark: #1e1e1e;
   --gray: #6f6f6f;
   --accent: #e28a4a;
+  --chocolate: #3a2925;
+  --warm-gold: #efc58e;
 }
 
 * {
@@ -14,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -21,78 +29,74 @@ body {
   color: var(--dark);
 }
 
-/* ===== NAV ===== */
+
+/* =========================================
+   NAVIGATION BAR
+========================================= */
+
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background: var(--soft-cream);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 15px 40px;
   z-index: 1000;
-}
-
-.navbar a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: var(--black);
-  font-weight: 500;
-}
-
-.navbar a:hover {
-  color: var(--burnt-orange);
-}
-
-.navbar a.active {
-  color: var(--burnt-orange);
-  font-weight: 600;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
 }
 
 .logo {
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: 2px;
   color: var(--burnt-orange);
+  text-decoration: none;
 }
 
-/* ===== HERO ===== */
-.hero {
-  min-height: calc(100vh - 80px);
-  background-color: #111;
-  color: white;
+.navbar nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-
+  gap: 25px;
 }
 
-.hero span {
+.navbar nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
   color: var(--burnt-orange);
 }
 
-.btn-primary {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16); 
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  color: white; 
-  text-decoration: none;
-  border-radius: 30px;
+.navbar nav a.active {
+  font-weight: 600;
 }
 
 
-.btn-dark:hover {
-  background: linear-gradient(135deg, #c65a1e, #8b3f16); 
-}
+/* =========================================
+   GENERAL SECTION STYLES
+========================================= */
 
-/* ===== SECTIONS ===== */
 .section {
   padding: 80px 40px;
   position: relative;
   z-index: 2;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.center {
+  text-align: center;
 }
 
 .light {
@@ -109,37 +113,252 @@ body {
   color: white;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
-
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
 }
 
-.center {
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #c65a1e, #8b3f16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark {
+  display: inline-block;
+  padding: 24px 40px;
+  background: linear-gradient(135deg, #c65a1e, #8b3f16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 40px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  margin-top: 50px;
+}
+
+.btn-dark:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   INTRODUCTION / SIGNATURE SECTION
+========================================= */
+
+.about-signature {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #fdf8f3 0%,
+    #f3e8dd 100%
+  );
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
+
+.about-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+  z-index: 2;
+}
+
+/* IMAGE */
+
+.about-image {
+  position: relative;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  border-radius: 32px;
+  object-fit: cover;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* TEXT */
+
+.about-content {
+  animation: fadeUp 1s ease forwards;
+}
+
+.about-label {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--burnt-orange);
+}
+
+.about-content h2 {
+  font-size: 1.7rem;
+  margin: 14px 0 12px;
+  color: var(--dark);
+}
+
+.about-line {
+  width: 65px;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--accent),
+    transparent
+  );
+  margin-bottom: 26px;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--gray);
+  max-width: 460px;
+}
+
+
+/* =========================================
+   ABOUT / STELLAR VISION SECTION
+   ORIGINAL DESIGN PRESERVED
+========================================= */
+
+.hero {
+  min-height: calc(100vh - 80px);
+  background-color: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-/* ===== CARD ===== */
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
+.hero-content {
+  max-width: 950px;
+  margin: auto;
 }
 
-.card ul {
-  list-style: none;
+.hero span {
+  color: var(--burnt-orange);
 }
 
-.card li {
-  margin: 12px 0;
+.hero-content h1 {
+  margin-bottom: 25px;
 }
 
-/* ===== GALLERY SECTION ===== */
+.hero-content p {
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+
+.hero-content strong {
+  font-weight: 600;
+}
+
+.hero-content em {
+  color: #e8b18d;
+}
+
+
+/* =========================================
+   STELLAR MARQUEE
+========================================= */
+
+.stellar-marquee {
+  width: 100%;
+  overflow: hidden;
+  background: #efc58e;
+  border-top: 1px solid rgba(30, 30, 30, 0.15);
+  border-bottom: 1px solid rgba(30, 30, 30, 0.15);
+  padding: 17px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: stellarScroll 30s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 35px;
+  padding-right: 35px;
+  white-space: nowrap;
+}
+
+.marquee-content span {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #3a2925;
+}
+
+.marquee-content i {
+  color: var(--burnt-orange);
+  font-size: 11px;
+}
+
+@keyframes stellarScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+
+/* =========================================
+   GALLERY SECTION
+========================================= */
+
 #gallery {
   padding: 80px 0;
   background: #111;
@@ -152,22 +371,19 @@ body {
   font-size: 2.5rem;
 }
 
-/* GRID */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
-/* IMAGE BOX */
 .gallery-item {
-  height: 300px; /* increased from 220px */
+  height: 300px;
   border-radius: 16px;
   overflow: hidden;
   background: #333;
 }
 
-/* IMAGE FIT */
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -176,14 +392,18 @@ body {
   transition: transform 0.4s ease;
 }
 
-/* HOVER EFFECT */
 .gallery-item:hover img {
   transform: scale(1.05);
 }
 
-/* ===== STELLAR MOMENTS VIDEOS ===== */
+
+/* =========================================
+   STELLAR MOMENTS / VIDEOS
+========================================= */
+
 .video-section {
   padding: 80px 0;
+  background: var(--soft-cream);
 }
 
 .section-title {
@@ -199,56 +419,45 @@ body {
   color: #777;
 }
 
-/* GRID LAYOUT */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
-}
-
-/* VIDEO CARD */
-/* VIDEO GRID */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* side-by-side */
-  gap: 30px;
   margin-bottom: 40px;
 }
 
-/* VIDEO CARD */
 .video-card {
   background: #111;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 16/9; /* consistent video height */
 }
 
 .video-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Video inside card (preview) */
 .video-card video {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+  background: #111;
 }
 
 .video-card p {
   color: #fff;
   font-weight: 600;
-  padding: 10px 0;
+  padding: 14px 10px;
   text-align: center;
+  font-size: 14px;
 }
 
-/* Full Video Player */
 .video-full-display {
   max-width: 900px;
-  margin: 50px auto 0 auto;
+  margin: 50px auto 0;
   text-align: center;
 }
 
@@ -260,265 +469,422 @@ body {
 
 .video-full-display p {
   font-size: 18px;
-  color: #c65a1e; /* Stellar accent */
+  color: var(--burnt-orange);
   font-weight: 600;
   margin-bottom: 30px;
 }
 
-/* MOBILE STACK */
-@media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
-/* =========================
-   WHATSAPP CONTACT
-========================= */
+/* =========================================
+   REGISTRATION SECTION
+========================================= */
 
-.whatsapp-contact {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 25px;
-  padding: 14px 22px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-.whatsapp-icon {
-  font-size: 26px;
-  color: white;
-}
-
-.whatsapp-contact a {
-  color: white;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.whatsapp-contact:hover {
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  padding: 20px;
-  background: black;
-  color: white;
+.register-section {
+  background: #f4eee5;
+  padding: 100px 25px;
   text-align: center;
-}
-
-/* ================= ABOUT + SIGNATURE ================= */
-.about-signature {
-  position: relative;   
-  height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #fdf8f3 0%,
-    #f3e8dd 100%
-  );
-  overflow: visible;
-}
-
-/* Layout */
-.about-grid {
+  color: var(--dark);
   position: relative;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  align-items: center;
-  z-index: 2;
+  overflow: hidden;
 }
 
-/* Image */
-.about-image {
+.register-container {
+  max-width: 760px;
+  margin: auto;
+  padding: 55px 35px;
+  background: #faf7f1;
+  border: 1px solid rgba(198, 90, 30, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(58, 41, 37, 0.07);
   position: relative;
 }
 
-.about-image img {
-  width: 100%;
-  border-radius: 32px;
-  object-fit: cover;
-  box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.18),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
-}
-
-/* Text */
-.about-content {
-  animation: fadeUp 1s ease forwards;
-}
-
-.about-label {
-  font-size: 0.85rem;
+.register-label,
+.contact-label {
+  display: inline-block;
+  color: var(--burnt-orange);
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  margin-bottom: 17px;
+}
+
+.register-container h2 {
+  font-size: 35px;
+  line-height: 1.3;
+  color: #3a2925;
+  margin-bottom: 20px;
+}
+
+.register-container h2 span {
   color: var(--burnt-orange);
 }
 
-.about-content h2 {
-  font-size: 1.7rem;
-  margin: 14px 0 12px;
+.register-intro {
+  max-width: 600px;
+  margin: 0 auto 15px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #51433d;
 }
 
-/* Accent line */
-.about-line {
-  width: 65px;
-  height: 3px;
-  background: linear-gradient(
-    to right,
-    var(--accent),
-    transparent
-  );
-  margin-bottom: 26px;
+.register-description {
+  max-width: 550px;
+  margin: 0 auto;
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--gray);
 }
 
-/* Paragraphs */
-.about-intro {
-  font-size: 1.1rem;
-  font-weight: 500;
+.register-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 30px;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #c65a1e, #8b3f16);
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 40px;
+  box-shadow: 0 9px 22px rgba(198, 90, 30, 0.2);
+  transition: all 0.3s ease;
+}
+
+.register-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 28px rgba(198, 90, 30, 0.3);
+}
+
+.register-note {
+  margin-top: 18px;
+  font-size: 11px;
+  color: #8b7770;
+  font-style: italic;
+}
+
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.contact-section {
+  background: #faf7f1;
+  padding: 85px 25px;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 650px;
+  margin: auto;
+}
+
+.contact-container h2 {
+  font-size: 34px;
+  line-height: 1.3;
+  color: #3a2925;
   margin-bottom: 18px;
 }
 
-.about-content p {
-  font-size: 1.05rem;
-  line-height: 1.9;
-  color: var(--gray);
-  max-width: 460px;
+.contact-container h2 span {
+  color: var(--burnt-orange);
 }
 
-/* Animation */
+.contact-container > p {
+  max-width: 510px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--gray);
+}
+
+.contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 15px 25px;
+  background: #3a2925;
+  color: #fffaf3;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.contact-whatsapp > i:first-child {
+  font-size: 21px;
+  color: #efc58e;
+}
+
+.contact-arrow {
+  font-size: 11px;
+  opacity: 0.75;
+}
+
+.contact-whatsapp:hover {
+  background: var(--burnt-orange);
+  transform: translateY(-3px);
+}
+
+.contact-caption {
+  display: block;
+  margin-top: 18px;
+  color: #927c70;
+  font-size: 11px;
+  font-style: italic;
+}
+
+
+/* =========================================
+   STELLAR FOOTER
+========================================= */
+
+.stellar-footer {
+  background: #3a2925;
+  color: #f6f1eb;
+  padding: 65px 40px 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
+  gap: 45px;
+  padding-bottom: 50px;
+}
+
+/* BRAND */
+
+.footer-logo {
+  display: inline-block;
+  color: #f6f1eb;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.footer-logo span {
+  color: #e28a4a;
+}
+
+.footer-brand p {
+  max-width: 270px;
+  color: #d5c5b9;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* FOOTER COLUMNS */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.footer-column h3 {
+  color: #efc58e;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.footer-column a,
+.footer-column p {
+  color: #d5c5b9;
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #efc58e;
+}
+
+.footer-contact a,
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-contact i {
+  color: #e28a4a;
+  font-size: 13px;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+  border-top: 1px solid rgba(246, 241, 235, 0.18);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-bottom p {
+  color: #bfaea2;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   SCROLL TO TOP BUTTON
+========================================= */
+
+.up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e28a4a, #c65a1e);
+  color: white;
+  box-shadow: 0 10px 25px rgba(198, 90, 30, 0.35);
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.up.show-up-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.up:hover {
+  transform: translateY(-12%);
+  box-shadow: 0 14px 35px rgba(198, 90, 30, 0.55);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
 @keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(28px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ===== STELLAR REGISTER BUTTON ===== */
-.btn-dark {
-  display: inline-block;
-  padding: 24px 40px;
-  background: linear-gradient(135deg, #c65a1e, #8b3f16);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 40px;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-  margin-top: 50px; 
-}
 
-    /* ===
-       Scroll to Top Button
-   === */
+/* =========================================
+   TABLET RESPONSIVE DESIGN
+========================================= */
 
-    .up {
-      position: fixed;
-      bottom: 10px;
-      right: 20px;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #e28a4a, #c65a1e);
-      color: white;
-      box-shadow: 0 10px 25px rgba(198, 90, 30, 0.35);
-      font-size: 16px;
-      cursor: pointer;
-      z-index: 9999; 
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .up.show-up-btn {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .up:hover {
-     transform: translateY(-12%);
-     box-shadow: 0 14px 35px rgba(198, 90, 30, 0.55);
-    }
-
-
-/* ====
-   RESPONSIVE DESIGN 
-==== */
-
-/* ---------- Large Tablets / Small Laptops ---------- */
 @media (max-width: 1024px) {
 
+  /* INTRODUCTION */
+
+  .about-signature {
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+  }
+
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
     text-align: center;
   }
 
-  .about-image img {
+  .about-image {
+    order: -1;
+    width: 100%;
     max-width: 500px;
+    margin-bottom: 0;
+  }
+
+  .about-image img {
+    max-width: 100%;
     margin: 0 auto;
+  }
+
+  .about-content {
+    order: 1;
+    text-align: center;
   }
 
   .about-line {
     margin: 0 auto 26px;
   }
 
-  .hero-content h1 {
-    font-size: 42px;
+  .about-content p {
+    margin: 0 auto 18px;
   }
 
-  .hero-content p {
-    font-size: 16px;
-  }
+  /* VIDEOS */
 
   .video-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (min-width: 1024px) {
-  .hero {
-    min-height: 100vh;
-    padding-top: 140px;
-    position: relative;
-  z-index: 1;
+  /* GALLERY */
+
+  .gallery-item {
+    height: 350px;
   }
+
 }
 
 
-/* ---------- Tablets ---------- */
+/* =========================================
+   MOBILE / TABLET NAVIGATION
+========================================= */
+
 @media (max-width: 768px) {
 
-  /* NAV */
   .navbar {
     flex-direction: column;
+    align-items: center;
     gap: 12px;
-    padding: 20px;
+    padding: 14px 20px;
   }
 
   .navbar nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 18px;
+    gap: 14px;
+  }
+
+  .navbar nav a {
+    font-size: 13px;
+  }
+
+  .logo {
+    font-size: 22px;
   }
 
   /* HERO */
+
   .hero {
-    padding: 120px 24px;
+    padding: 170px 24px 100px;
     text-align: center;
   }
 
@@ -526,80 +892,16 @@ footer {
     font-size: 36px;
   }
 
-  .hero-content span {
-    display: block;
-  }
-
-  /* ABOUT / SIGNATURE */
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-content {
-    order: 1;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .about-image {
-    order: 2;
-    width: 100%;
-  }
-
-  .about-content p {
-    margin: 0 auto;
-  }
-
-  /* GALLERY */
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ---------- Phones ---------- */
-@media (max-width: 480px) {
-
-  body {
+  .hero-content p {
     font-size: 15px;
   }
 
-  /* NAV */
-  .logo {
-    font-size: 22px;
+  /* INTRODUCTION */
+
+  .about-signature {
+    padding-top: 150px;
   }
 
-  .navbar nav a {
-    font-size: 14px;
-  }
-
-  /* FIX NAV OVERLAP */
-  #home {
-    padding-top: 180px;
-    padding-bottom: 80px;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 100px 18px;
-  }
-
-  .hero-content h1 {
-    font-size: 30px;
-    line-height: 1.25;
-  }
-
-  .hero-content p {
-    font-size: 14.5px;
-  }
-
-  .btn-primary {
-    padding: 12px 22px;
-    font-size: 14px;
-  }
-
-  /* ABOUT / SIGNATURE */
   .about-content {
     padding: 0 12px;
   }
@@ -613,216 +915,91 @@ footer {
   }
 
   .about-image {
-    margin-top: 40px;
-  }
-
-  .about-image img {
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    border-radius: 16px;
-  }
-
-  /* VIDEOS */
-  .video-card p {
-    font-size: 14px;
+    max-width: 450px;
   }
 
   /* GALLERY */
+
   .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    height: 400px;
+  }
+
+  /* VIDEOS */
+
+  .video-grid {
     grid-template-columns: 1fr;
   }
 
-  /* CONTACT */
-  .contact-email {
-    font-size: 14px;
-  }
+  /* SPLIT LAYOUT */
 
-  footer {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .about-signature {
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
-  }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
   .split {
     grid-template-columns: 1fr;
   }
 
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
 }
 
-/* Animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* ===== MAKE GALLERY IMAGES TALLER ON MOBILE/TABLET ===== */
-@media (max-width: 1024px) {
-  .gallery-item {
-    height: 350px; /* taller for tablets */
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-item {
-    height: 400px; /* even taller for small tablets */
-  }
-}
+/* =========================================
+   PHONE RESPONSIVE DESIGN
+========================================= */
 
 @media (max-width: 480px) {
-  .gallery-item {
-    height: 450px; /* tallest for phones */
-  }
-}
 
-/* ===== MOVE SIGNATURE IMAGE TO FRONT ON MOBILE/TABLETS ===== */
-@media (max-width: 1024px) {
-  .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-image {
-    order: -1; /* signature first */
-    width: 100%;
-    margin-bottom: 30px;
-  }
-
-  .about-content {
-    order: 1;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-image {
-    order: -1;
-    max-width: 320px;
-    margin-bottom: 30px;
-  }
-
-  .about-content {
-    order: 1;
-    text-align: center;
-  }
-}
-
-
-/* ===== MEDIA QUERIES SPECIFICALLY FOR IPHONES ===== */
-
-@supports (-webkit-touch-callout: none) {
-
-  /* ---------- GLOBAL SCALE DOWN ---------- */
   body {
-    font-size: 14.5px;
+    font-size: 15px;
   }
 
-  h1 {
-    font-size: 30px;
-    line-height: 1.25;
-  }
+  /* NAVIGATION */
 
-  h2 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 14.5px;
-  }
-
-  /* ---------- HERO FIX ---------- */
-  .hero {
-    min-height: 100svh;
-    height: auto;
-    padding: 140px 20px 120px; /* top & bottom space */
-  }
-
-  .btn-primary {
-    padding: 11px 22px;
-    font-size: 14px;
-  }
-
-  /* ---------- NAV ---------- */
   .navbar {
-    padding: 16px 20px;
-  }
-
-  .navbar a {
-    font-size: 14px;
+    padding: 14px 15px;
+    gap: 10px;
   }
 
   .logo {
     font-size: 22px;
   }
 
-  /* ---------- GALLERY ---------- */
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  .navbar nav {
+    gap: 10px 15px;
   }
 
-  .gallery-item {
-    height: 260px;
-    border-radius: 14px;
+  .navbar nav a {
+    font-size: 12px;
   }
 
-  /* ---------- VIDEO PREVIEWS ---------- */
-  .video-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
+  /* INTRODUCTION */
+
+  #home {
+    padding-top: 175px;
+    padding-bottom: 65px;
   }
 
-  .video-card {
-    aspect-ratio: 16 / 9;
+  .about-signature {
+    min-height: auto;
   }
 
-  .video-card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: black;
-  }
-
-  .video-card p {
-    font-size: 14px;
-  }
-
-  /* ---------- ABOUT / SIGNATURE ---------- */
   .about-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 28px;
   }
 
   .about-image {
-    order: -1;
-    max-width: 300px;
-    margin-bottom: 26px;
+    max-width: 320px;
+    margin: 25px auto 0;
   }
 
   .about-image img {
+    display: block;
+    width: 100%;
     border-radius: 18px;
+  }
+
+  .about-content {
+    padding: 0 12px;
   }
 
   .about-content h2 {
@@ -830,62 +1007,238 @@ footer {
   }
 
   .about-content p {
-    font-size: 14.5px;
-    line-height: 1.7;
-  }
-
-  /* ---------- BUTTONS ---------- */
-  .btn-dark {
-    padding: 18px 30px;
     font-size: 14px;
-    margin-top: 40px;
+    line-height: 1.8;
   }
 
-  /* ---------- FOOTER ---------- */
-  footer {
-    font-size: 13px;
-  }
-}
-
-/* ===== FINAL UNIVERSAL MOBILE NAV FIX ===== */
-@media (max-width: 768px) {
-
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 14px 20px;
-    background: var(--soft-cream);
-    z-index: 1000;
+  .about-intro {
+    font-size: 15px;
   }
 
-  .navbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  .navbar a {
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .logo {
-    font-size: 22px;
-  }
+  /* HERO / ABOUT */
 
   .hero {
-    padding-top: 170px;
+    min-height: 100svh;
+    height: auto;
+    padding: 170px 18px 90px;
   }
 
-    .about-signature {
-    padding-top: 140px;
+  .hero-content h1 {
+    font-size: 30px;
+    line-height: 1.25;
   }
 
-  .about-image {
-    margin-top: 25px;
+  .hero-content p {
+    font-size: 13px;
+    line-height: 1.8;
   }
+
+  .btn-primary {
+    padding: 12px 22px;
+    font-size: 13px;
+  }
+
+  /* MARQUEE */
+
+  .stellar-marquee {
+    padding: 14px 0;
+  }
+
+  .marquee-content {
+    gap: 22px;
+    padding-right: 22px;
+  }
+
+  .marquee-content span {
+    font-size: 11px;
+  }
+
+  /* GALLERY */
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    height: 450px;
+  }
+
+  /* VIDEOS */
+
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .video-card {
+    border-radius: 14px;
+  }
+
+  .video-card video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .video-card p {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+
+  /* REGISTER */
+
+  .register-section {
+    padding: 65px 18px;
+  }
+
+  .register-container {
+    padding: 40px 22px;
+  }
+
+  .register-container h2 {
+    font-size: 27px;
+  }
+
+  .register-intro {
+    font-size: 13px;
+  }
+
+  .register-description {
+    font-size: 12px;
+  }
+
+  .register-button {
+    padding: 14px 22px;
+    font-size: 12px;
+  }
+
+  /* CONTACT */
+
+  .contact-section {
+    padding: 65px 20px;
+  }
+
+  .contact-container h2 {
+    font-size: 27px;
+  }
+
+  .contact-container > p {
+    font-size: 13px;
+  }
+
+  .contact-whatsapp {
+    padding: 14px 19px;
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+
+  .stellar-footer {
+    padding: 50px 25px 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 22px;
+    padding-bottom: 35px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    max-width: 310px;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+  }
+
+  .footer-column h3 {
+    font-size: 12px;
+  }
+
+  .footer-column a,
+  .footer-column p {
+    font-size: 11px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+
+  /* SCROLL TO TOP */
+
+  .up {
+    width: 36px;
+    height: 36px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+
+  .navbar nav {
+    gap: 9px 12px;
+  }
+
+  .navbar nav a {
+    font-size: 11px;
+  }
+
+  .hero-content h1 {
+    font-size: 27px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+}
+
+
+/* =========================================
+   IPHONE / SAFARI ADJUSTMENTS
+========================================= */
+
+@supports (-webkit-touch-callout: none) {
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .about-signature {
+    min-height: auto;
+  }
+
+  .video-card video {
+    background: #111;
+  }
+
 }
