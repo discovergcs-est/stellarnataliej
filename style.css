@@ -10,7 +10,6 @@
   --gray: #6f6f6f;
   --accent: #e28a4a;
 
-  /* Consistent typography */
   --font-body: 16px;
   --font-small: 14px;
   --font-nav: 16px;
@@ -108,6 +107,12 @@ a {
   box-shadow: 0 2px 12px rgba(30, 30, 30, 0.05);
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .navbar .logo {
   margin: 0;
   color: var(--burnt-orange);
@@ -115,6 +120,7 @@ a {
   font-weight: 700;
   letter-spacing: 2px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .navbar nav {
@@ -135,6 +141,27 @@ a {
 .navbar nav a:hover,
 .navbar nav a.active {
   color: var(--burnt-orange);
+}
+
+/* Hamburger is hidden on desktop */
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 27px;
+  height: 2.5px;
+  margin: 6px 0;
+  background: var(--burnt-orange);
+  border-radius: 5px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 
@@ -301,8 +328,6 @@ a {
   font-size: var(--font-small);
 }
 
-/* Continuous, seamless animation */
-
 @keyframes marqueeTravel {
   from {
     transform: translateX(0);
@@ -315,6 +340,12 @@ a {
 
 .stellar-marquee:hover .marquee-track {
   animation-play-state: paused;
+}
+
+/* Clear separation after Register */
+
+.marquee-secondary {
+  margin-top: 45px;
 }
 
 
@@ -506,7 +537,7 @@ a {
 ========================================= */
 
 #register {
-  margin-top: 55px;
+  margin-top: 30px;
   padding: 70px 30px;
   text-align: center;
 }
@@ -801,27 +832,83 @@ a {
     --font-display: 38px;
   }
 
+  /* Mobile header: hamburger and logo on left */
+
   .navbar {
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 20px;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 70px;
+    padding: 12px 20px;
   }
 
-  .navbar nav {
+  .nav-left {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
     gap: 15px;
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+    flex-shrink: 0;
+    margin-left: -7px;
+  }
+
+  .navbar .logo {
+    font-size: 23px;
+  }
+
+  /* Hidden navigation until menu is opened */
+
+  .navbar nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 0 15px;
+    background: var(--soft-cream);
+    box-shadow: 0 8px 18px rgba(30, 30, 30, 0.08);
+  }
+
+  .navbar.active nav {
+    display: flex;
   }
 
   .navbar nav a {
-    font-size: var(--font-nav);
+    display: block;
+    width: 100%;
+    padding: 12px 25px;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .navbar nav a:hover {
+    background: rgba(198, 90, 30, 0.07);
+  }
+
+  /* Three lines become an X */
+
+  .navbar.active .menu-toggle span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .navbar.active .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar.active .menu-toggle span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
   }
 
   .about-signature {
     min-height: auto;
-    padding: 155px 25px 70px;
+    padding: 115px 25px 70px;
   }
 
   .about-grid {
@@ -852,6 +939,7 @@ a {
   }
 
   .hero {
+    min-height: auto;
     padding: 65px 25px;
   }
 
@@ -875,6 +963,10 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .video-section {
+    padding: 60px 25px;
+  }
+
   .footer-container {
     grid-template-columns: 1fr 1fr;
     gap: 35px;
@@ -882,6 +974,10 @@ a {
 
   .footer-brand {
     max-width: 100%;
+  }
+
+  .marquee-secondary {
+    margin-top: 45px;
   }
 }
 
@@ -902,23 +998,32 @@ a {
   }
 
   .navbar {
-    padding: 13px 12px;
-    gap: 10px;
+    padding: 11px 18px;
+  }
+
+  .nav-left {
+    gap: 13px;
   }
 
   .navbar .logo {
     font-size: 22px;
   }
 
-  .navbar nav {
-    gap: 12px;
+  .menu-toggle span {
+    width: 25px;
+  }
+
+  .navbar nav a {
+    padding: 11px 22px;
+    font-size: 14px;
   }
 
   .about-signature {
-    padding: 155px 20px 60px;
+    padding: 105px 20px 60px;
   }
 
-  .about-content h2 {
+  .about-content h2,
+  .hero-content h1 {
     font-size: var(--font-subheading);
   }
 
@@ -972,6 +1077,10 @@ a {
     padding: 60px 20px;
   }
 
+  #register h2 {
+    font-size: var(--font-heading);
+  }
+
   #contact {
     padding: 60px 20px;
   }
@@ -1004,6 +1113,10 @@ a {
     flex-direction: column;
     text-align: center;
     gap: 8px;
+  }
+
+  .marquee-secondary {
+    margin-top: 40px;
   }
 }
 
