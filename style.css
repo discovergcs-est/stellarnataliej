@@ -861,59 +861,34 @@ a {
   }
 }
 
+  /* FOOTER */
 
-/* =========================================
-   CONTACT — SMALL PHONES
-========================================= */
-
-@media (max-width: 480px) {
-
-  .about-image {
-    margin-top: 55px;
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
   }
 
-  .hero-image {
-    height: 350px;
-    width: 100%;
-    margin-top: 110px;
-    position: relative;
-    z-index: 1;
+  .footer-brand,
+  .footer-note {
+    grid-column: 1 / -1;
   }
 
-  /* CONTACT SECTION */
-  .stellar-contact {
-    padding: 60px 20px;
+  .footer-note {
+    padding-left: 0;
+    border-left: none;
   }
 
-  .contact-content h2 {
-    font-size: 27px;
+  .footer-note h2 {
+    font-size: var(--font-subheading);
   }
 
-  .contact-content p {
-    font-size: 14px;
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
   }
-
-  .contact-options {
-    padding: 12px;
-    border-radius: 15px;
-  }
-
-  .contact-option {
-    gap: 13px;
-    padding: 18px 13px;
-  }
-
-  .contact-option-icon {
-    width: 42px;
-    height: 42px;
-    font-size: 20px;
-  }
-
-  .contact-option-text h3 {
-    font-size: 15px;
-  }
-
 }
+
 
 
 
@@ -1342,6 +1317,7 @@ a {
 }
 
 
+
 /* =========================================
    SMALL PHONES
 ========================================= */
@@ -1356,6 +1332,8 @@ a {
     --font-heading: 26px;
     --font-display: 34px;
   }
+
+  /* NAVIGATION */
 
   .navbar {
     padding: 11px 18px;
@@ -1378,28 +1356,21 @@ a {
     font-size: 14px;
   }
 
-
-  /* HOME */
+  /* HOME / INTRODUCTION */
 
   .about-signature {
-    padding: 145px 20px 65px;
+    min-height: auto;
+    padding: 110px 20px 55px;
   }
 
   .about-grid {
     gap: 35px;
   }
 
-  .about-content h2,
-  .hero-content h1 {
-    font-size: var(--font-subheading);
-  }
-
-  .about-content p {
-    line-height: 1.8;
-  }
-
   .about-image {
+    width: 100%;
     max-width: 320px;
+    margin: 0 auto;
   }
 
   .about-image img {
@@ -1414,6 +1385,14 @@ a {
     filter: blur(18px);
   }
 
+  .about-content h2,
+  .hero-content h1 {
+    font-size: var(--font-subheading);
+  }
+
+  .about-content p {
+    line-height: 1.8;
+  }
 
   /* MARQUEE */
 
@@ -1430,20 +1409,21 @@ a {
     letter-spacing: 1.5px;
   }
 
-
   /* ABOUT VISION */
 
   .hero {
-    padding: 55px 20px;
+    padding: 45px 20px;
   }
 
   .hero-layout {
-    gap: 30px;
+    gap: 25px;
   }
 
   .hero-image {
-  height: 350px;
-  margin-top: 65px;  
+    width: 100%;
+    max-width: 100%;
+    height: 350px;
+    margin: 20px auto 0;
   }
 
   .hero-content p {
@@ -1453,7 +1433,6 @@ a {
   .hero-message strong {
     font-size: var(--font-body);
   }
-
 
   /* VIDEOS */
 
@@ -1472,6 +1451,90 @@ a {
   .video-card p {
     padding: 11px;
   }
+
+  /* GENERAL SECTIONS */
+
+  .section {
+    padding: 55px 20px;
+  }
+
+  /* REGISTER */
+
+  #register {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 50px 20px;
+  }
+
+  #register h2 {
+    font-size: var(--font-heading);
+  }
+
+  #register p {
+    font-size: 14px;
+  }
+
+  /* CONTACT */
+
+  .stellar-contact {
+    padding: 55px 20px;
+  }
+
+  .contact-content h2 {
+    font-size: 27px;
+  }
+
+  .contact-content p {
+    font-size: 14px;
+  }
+
+  .contact-options {
+    padding: 12px;
+    border-radius: 15px;
+  }
+
+  .contact-option {
+    gap: 13px;
+    padding: 18px 13px;
+  }
+
+  .contact-option-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .contact-option-text h3 {
+    font-size: 15px;
+  }
+
+  /* FOOTER */
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+
+  .footer-brand,
+  .footer-note {
+    grid-column: 1 / -1;
+  }
+
+  .footer-note {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .footer-note h2 {
+    font-size: var(--font-subheading);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
 
 
   /* GENERAL SECTIONS */
