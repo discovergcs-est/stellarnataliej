@@ -1,209 +1,440 @@
 
-/* =========================================
-   STELLAR — NAVBAR SCROLL EFFECT
-========================================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>STELLAR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const navbar = document.querySelector(".navbar");
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-if (navbar) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-      navbar.style.boxShadow = "0 4px 15px rgba(0, 0, 0, 0.08)";
-    } else {
-      navbar.classList.remove("scrolled");
-      navbar.style.boxShadow = "none";
-    }
-  });
-}
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-/* =========================
-   MOBILE NAVIGATION
-========================= */
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Stellar.png" type="image/png">
+</head>
 
-// These IDs must match the HTML.
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
+<body>
 
-if (menuToggle && mainNav && navbar) {
+<!-- ================= NAVIGATION BAR ================= -->
+  
+<header class="navbar">
 
-  // OPEN AND CLOSE MENU
-  menuToggle.addEventListener("click", function (event) {
-    event.stopPropagation();
+  <div class="nav-left">
 
-    const isOpen = navbar.classList.toggle("active");
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mainNav">
 
-    menuToggle.setAttribute("aria-expanded", isOpen);
+      <span></span>
+      <span></span>
+      <span></span>
 
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-  });
+    </button>
 
-  // CLOSE MENU WHEN A LINK IS CLICKED
-  mainNav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      navbar.classList.remove("active");
+    <a href="index.html#home" class="logo">STELLAR</a>
 
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
-    });
-  });
+  </div>
 
-  // CLOSE MENU WHEN CLICKING OUTSIDE
-  document.addEventListener("click", function (event) {
-    if (!navbar.contains(event.target)) {
-      navbar.classList.remove("active");
+  <nav id="mainNav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#videos">Moments</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="#register">Register</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
-    }
-  });
+</header>
+  
+<!-- ================= INTRODUCTION TO STELLAR ================= -->
+<section id="home" class="section about-signature">
 
-  // CLOSE MENU WHEN SCREEN RESIZES TO DESKTOP
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 768) {
-      navbar.classList.remove("active");
+  <div class="about-overlay"></div>
 
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
-    }
-  });
-}
+  <div class="container about-grid">
 
-/* =========================================
-   LOAD MORE PHOTOS
-========================================= */
+    <div class="about-image">
+      <img src="signature.jpeg" alt="STELLAR Signature Moment">
+    </div>
 
-const loadMoreButton = document.querySelector("#loadMore");
-const extraPhotos = document.querySelectorAll(".extra-photo");
+    <div class="about-content">
+      <span class="about-label">STELLAR</span>
 
-if (loadMoreButton) {
-  loadMoreButton.addEventListener("click", () => {
-    extraPhotos.forEach(photo => {
-      photo.style.display = "block";
-    });
+      <h2>Strive Towards Excellence in Loyalty and Love</h2>
+      <h2>-Amount Rewards-</h2>
 
-    loadMoreButton.style.display = "none";
-  });
-}
+      <div class="about-line"></div>
 
-/* =========================================
-   CURRENT YEAR
-========================================= */
+      <p class="about-intro">
+        STELLAR is more than a platform - it is a space designed for Introspection, Connection, Loyalty and Intentional, Intimate experiences.
+      </p>
 
-const year = document.querySelector(".current-year");
+      <p>
+        Built on the belief that meaningful relationships deserve the attention that amounts thoughtful rewards.
+        STELLAR curates moments that are personal, elevated and lasting.
+        Every detail reflects our commitment to You. Delivering authentically, adding value to the reason why the need to aspire to excellence in our relationship.
+      </p>
+    </div>
 
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
+  </div>
+</section>
 
-/* =========================================
-   SCROLL TO TOP BUTTON
-========================================= */
 
-const upBtn = document.querySelector(".up");
+  <!-- ================= TRAVEL MARQUEE ================= -->
+<div class="stellar-marquee" aria-label="Travel, wellness and connection">
+  <div class="marquee-track">
 
-if (upBtn) {
+    <div class="marquee-content">
+      <span>DISCOVER</span>
+      <i class="fa-solid fa-compass"></i>
+      <span>CONNECT</span>
+      <i class="fa-solid fa-sun"></i>
+      <span>RECONNECT</span>
+      <i class="fa-solid fa-plane"></i>
+      <span>EXPERIENCE DOMINICA</span>
+      <i class="fa-solid fa-leaf"></i>
+      <span>RESTORE</span>
+      <i class="fa-solid fa-compass"></i>
+    </div>
 
-  function toggleUpBtn() {
-    if (window.scrollY > 200) {
-      upBtn.classList.add("show-up-btn");
-    } else {
-      upBtn.classList.remove("show-up-btn");
-    }
-  }
+    <div class="marquee-content" aria-hidden="true">
+      <span>DISCOVER</span>
+      <i class="fa-solid fa-compass"></i>
+      <span>CONNECT</span>
+      <i class="fa-solid fa-sun"></i>
+      <span>RECONNECT</span>
+      <i class="fa-solid fa-plane"></i>
+      <span>EXPERIENCE DOMINICA</span>
+      <i class="fa-solid fa-leaf"></i>
+      <span>RESTORE</span>
+      <i class="fa-solid fa-compass"></i>
+    </div>
 
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
+  </div>
+</div>
 
-  window.addEventListener("scroll", toggleUpBtn);
-  upBtn.addEventListener("click", scrollToTop);
+<!-- ================= HERO / ABOUT ================= -->
+<section id="about" class="hero">
 
-  toggleUpBtn();
-}
+  <div class="hero-layout">
 
-/* =========================================
-   ACTIVE NAVIGATION LINK ON SCROLL
-========================================= */
+    <div class="hero-image">
+      <img src="signature.jpeg" alt="A glimpse into the STELLAR experience">
 
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".navbar nav a");
+      <div class="image-caption">
+        <span>THE STELLAR EXPERIENCE</span>
+        <p>Pause. Breathe. Be restored.</p>
+      </div>
+    </div>
 
-function setActive(id) {
-  navLinks.forEach(link => {
-    link.classList.remove("active");
+    <div class="hero-content">
 
-    const href = link.getAttribute("href");
+      <span class="hero-label">OUR VISION</span>
 
-    if (href === `#${id}`) {
-      link.classList.add("active");
-    }
-  });
-}
+      <h1>
+        Where Experiences Become
+        <span>STELLAR</span>
+      </h1>
 
-function activateNavLink() {
+      <div class="hero-divider"></div>
 
-  if (!sections.length) return;
+      <p>
+        <strong>STELLAR – The vision for transformation</strong>
+        was born from the quiet realization that many individuals
+        in relationships and marriages encounter seasons of strain,
+        moments that feel discouraging, overwhelming, and uncertain.
+      </p>
 
-  const scrollY = window.scrollY;
-  const pageBottom = scrollY + window.innerHeight;
+      <p>
+        Too often, these challenges create the illusion of isolation,
+        leaving people to believe that their struggles are theirs alone,
+        unseen, unheard, and carried in silence.
+      </p>
 
-  sections.forEach(section => {
+      <p>
+        Through STELLAR, a sacred space is created where healing begins,
+        offering tools for spiritual and emotional renewal,
+        while inviting participants into a truly transformative destination experience.
+      </p>
 
-    const sectionTop = section.offsetTop - 200;
-    const sectionBottom = sectionTop + section.offsetHeight;
-    const sectionId = section.getAttribute("id");
+      <div class="hero-message">
+        <strong>A sound mind. A healthy body.</strong>
+        <strong>Dominica – the Wellness Destination of the World.</strong>
+      </div>
 
-    if (scrollY >= sectionTop && scrollY < sectionBottom) {
-      setActive(sectionId);
-    }
-  });
+      <p class="hero-closing">
+        <em>Come… pause, breathe, and be restored.</em>
+      </p>
 
-  // Highlight Contact at the bottom of the page
-  if (pageBottom >= document.documentElement.scrollHeight - 5) {
-    setActive("contact");
-  }
-}
+      <a href="#register" class="btn-primary">Join the Experience</a>
 
-window.addEventListener("scroll", activateNavLink);
-window.addEventListener("load", activateNavLink);
+    </div>
 
-/* =========================================
-   VIDEO FUNCTIONALITY
-========================================= */
+  </div>
 
-const videos = document.querySelectorAll(".video-card video");
+</section>
 
-videos.forEach(video => {
 
-  // Allow mobile and desktop playback
-  video.controls = true;
-  video.playsInline = true;
-  video.autoplay = false;
-  video.loop = false;
-  video.preload = "metadata";
+<!-- ================= PROMOTIONAL VIDEOS ================= -->
+<section id="videos" class="section video-section">
 
-  video.removeAttribute("autoplay");
+  <div class="container">
 
-  // Pause other videos when one starts playing
-  video.addEventListener("play", () => {
-    videos.forEach(otherVideo => {
-      if (otherVideo !== video) {
-        otherVideo.pause();
-      }
-    });
-  });
-});
+    <h2 class="section-title">STELLAR Moments</h2>
 
-// Pause videos when leaving the page
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    videos.forEach(video => video.pause());
-  }
-});
+    <p class="section-subtitle">
+      A glimpse into the energy, atmosphere, and connection.
+    </p>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <video preload="metadata">
+          <source src="Stellar Launch (1).mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <p>STELLAR Launch</p>
+      </div>
+
+      <div class="video-card">
+        <video preload="metadata">
+          <source src="Stellar Weekend Rendezvous (1).mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <p>STELLAR Weekend Rendezvous</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  
+
+<!-- ================= REGISTER ================= -->
+<section id="register" class="section accent">
+
+  <div class="container center">
+
+    <h2>Register for a STELLAR Weekend Rendezvous</h2>
+
+    <p>Secure your spot for our next curated experience to transform you.</p>
+    <p>Tranform your relationship!</p>
+    <p>22nd - 25th May, 2026</p>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLScPErf7DPn6T6cmGZA7scOdzlBmnd0RdH1EYdnQ1Cw2VREvcA/viewform"
+      target="_blank"
+      rel="noopener"
+      class="btn-dark"
+    >
+      Register Now!!!
+    </a>
+
+  </div>
+
+</section>
+
+    <!-- ================= TRAVEL MARQUEE ================= -->
+<div class="stellar-marquee" aria-label="Travel, wellness and connection">
+  <div class="marquee-track">
+
+    <div class="marquee-content">
+      <span>DISCOVER</span>
+      <i class="fa-solid fa-compass"></i>
+      <span>CONNECT</span>
+      <i class="fa-solid fa-sun"></i>
+      <span>RECONNECT</span>
+      <i class="fa-solid fa-plane"></i>
+      <span>EXPERIENCE DOMINICA</span>
+      <i class="fa-solid fa-leaf"></i>
+      <span>RESTORE</span>
+      <i class="fa-solid fa-compass"></i>
+    </div>
+
+    <div class="marquee-content" aria-hidden="true">
+      <span>DISCOVER</span>
+      <i class="fa-solid fa-compass"></i>
+      <span>CONNECT</span>
+      <i class="fa-solid fa-sun"></i>
+      <span>RECONNECT</span>
+      <i class="fa-solid fa-plane"></i>
+      <span>EXPERIENCE DOMINICA</span>
+      <i class="fa-solid fa-leaf"></i>
+      <span>RESTORE</span>
+      <i class="fa-solid fa-compass"></i>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section stellar-contact">
+
+  <div class="container contact-layout">
+
+    <!-- LEFT: CONTACT MESSAGE -->
+    <div class="contact-content">
+
+      <span class="contact-label">LET'S CONNECT</span>
+
+      <h2>
+        Feel Free to
+        <span>Connect with STELLAR.</span>
+      </h2>
+
+      <div class="contact-divider"></div>
+
+      <p>
+        Every meaningful experience begins with a conversation.
+        Whether you're curious about our experiences, have a question,
+        or simply want to connect, we'd love to hear from you.
+      </p>
+
+      <p class="contact-closing">
+        Let's make room for moments that matter.
+      </p>
+
+      <div class="contact-socials">
+
+        <a
+          href="https://wa.me/17676133005?text=Hi%20STELLAR%2C%20I%E2%80%99d%20like%20to%20learn%20more%20about%20your%20experiences."
+          target="_blank"
+          rel="noopener"
+          class="social-link whatsapp-link"
+          aria-label="Contact STELLAR on WhatsApp"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/s.t.e.l.l.a.r._nataliej/"
+          target="_blank"
+          rel="noopener"
+          class="social-link instagram-link"
+          aria-label="Visit STELLAR on Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+      </div>
+
+      <span class="contact-follow-text">FOLLOW ALONG & STAY CONNECTED</span>
+
+    </div>
+
+    <!-- RIGHT: CONTACT OPTIONS -->
+    <div class="contact-options">
+
+      <div class="contact-option">
+
+        <div class="contact-option-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div class="contact-option-text">
+          <span>START A CONVERSATION</span>
+          <h3>Connect on WhatsApp</h3>
+          <p>Have a question? We'd be happy to assist.</p>
+
+          <a
+            href="https://wa.me/17676133005?text=Hi%20STELLAR%2C%20I%E2%80%99d%20like%20to%20learn%20more%20about%20your%20experiences."
+            target="_blank"
+            rel="noopener"
+          >
+            Chat with us <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="contact-option">
+
+        <div class="contact-option-icon">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+
+        <div class="contact-option-text">
+          <span>FOLLOW OUR JOURNEY</span>
+          <h3>Find us on Instagram</h3>
+          <p>Discover moments, experiences and updates.</p>
+
+          <a
+            href="https://www.instagram.com/s.t.e.l.l.a.r._nataliej/"
+            target="_blank"
+            rel="noopener"
+          >
+            Visit our page <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="stellar-footer">
+
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <a href="#home" class="footer-logo">STELLAR</a>
+
+      <p>
+        Strive Towards Excellence in Loyalty and Love.
+        Creating meaningful experiences that inspire connection,
+        renewal and transformation.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#videos">STELLAR Moments</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="footer-links">
+      <h3>Get Involved</h3>
+      <a href="#register">Register</a>
+      <a href="#contact">Contact Us</a>
+      <a href="https://wa.me/17676133005" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+
+    <div class="footer-note">
+      <span class="footer-eyebrow">YOUR NEXT EXPERIENCE AWAITS</span>
+      <h2>Make room for moments that matter.</h2>
+      <a href="#register" class="footer-button">Join the Experience</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 STELLAR. All Rights Reserved.</p>
+    <p>Dominica – The Wellness Destination of the World.</p>
+  </div>
+
+</footer>
+
+
+<!-- SCROLL TO TOP -->
+<div class="up" role="button" tabindex="0" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</div>
+
+
+
+<script src="stellar.js"></script>
+
+</body>
+</html>
