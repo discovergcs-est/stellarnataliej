@@ -1316,14 +1316,19 @@ a {
 
 
   /* HOME / INTRODUCTION */
+  .about-signature .about-grid {
+    display: flex;
+    flex-direction: column;
+  }
 
-  .about-signature {
-    min-height: auto;
-    padding: 85px 20px 55px;
+  .about-signature .about-image {
+    position: relative;
+    top: 40px !important;
+    margin-bottom: 40px;
   }
 
   .about-grid {
-    gap: 35px;
+    gap: 50px;
   }
 
   .about-image {
@@ -1425,9 +1430,8 @@ a {
   /* REGISTER */
 
   #register {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 30px 20px;
+      position: relative;
+    top: -45px;
   }
 
   #register h2 {
